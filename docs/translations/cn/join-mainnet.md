@@ -1,7 +1,7 @@
 ## 加入主网
 
 ::: 提示
-请查看[launch repo](https://github.com/cosmos/launch)获取主网信息，包含了所使用的Cosmos-SDK的正确版本和genesis文件。
+请查看[launch repo](https://github.com/evdatsion/launch)获取主网信息，包含了所使用的Cosmos-SDK的正确版本和genesis文件。
 :::
 
 ::: 警告
@@ -57,7 +57,7 @@ mkdir -p $HOME/.gaiad/config
 curl https://raw.githubusercontent.com/cosmos/launch/master/genesis.json > $HOME/.gaiad/config/genesis.json
 ```
 
-注意我们使用了[launch repo](https://github.com/cosmos/launch)中的`latest`文件夹，该文件夹包含了最新版本主网的详细信息。
+注意我们使用了[launch repo](https://github.com/evdatsion/launch)中的`latest`文件夹，该文件夹包含了最新版本主网的详细信息。
 
 ::: 提示
 如果你想加入的是公共测试网，点击[这里](./join-testnet.md)
@@ -71,13 +71,13 @@ gaiad start
 
 ### 添加种子节点
 
-你的节点需要知道如何寻找伙伴节点。你需要添加有用的种子节点到`$HOME/.gaiad/config/config.toml`文件中。[`launch`](https://github.com/cosmos/launch) repo包含了一些种子节点的链接。
+你的节点需要知道如何寻找伙伴节点。你需要添加有用的种子节点到`$HOME/.gaiad/config/config.toml`文件中。[`launch`](https://github.com/evdatsion/launch) repo包含了一些种子节点的链接。
 
 如果这些种子节点不再运行，你可以在Cosmos Hub浏览器(可以在[launch page](https://cosmos.network/launch)中找到)发现种子节点和持久节点。
 
 你还可以到[验证人Riot聊天室](https://riot.im/app/#/room/#cosmos-validators:matrix.org)里询问可用节点。
 
-你可以阅读[这里](https://github.com/tendermint/tendermint/blob/develop/docs/tendermint-core/using-tendermint.md#peers)了解更多伙伴节点和种子节点的信息。
+你可以阅读[这里](https://github.com/evdatsion/tendermint/blob/develop/docs/tendermint-core/using-tendermint.md#peers)了解更多伙伴节点和种子节点的信息。
 
 ::: 警告
 在Cosmos Hub主网中，可接受的币种是`uatom`,`1atom = 1.000.000uatom`

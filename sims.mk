@@ -4,7 +4,7 @@
 ### Simulations
 
 BINDIR ?= $(GOPATH)/bin
-SIMAPP = github.com/cosmos/gaia/app
+SIMAPP = github.com/evdatsion/gaia/app
 
 test-sim-nondeterminism:
 	@echo "Running non-determinism test..."

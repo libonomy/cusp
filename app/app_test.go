@@ -5,13 +5,13 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tendermint/tendermint/libs/log"
-	"github.com/tendermint/tm-db"
+	"github.com/evdatsion/tendermint/libs/log"
+	"github.com/evdatsion/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/simapp"
+	"github.com/evdatsion/cosmos-sdk/codec"
+	"github.com/evdatsion/cosmos-sdk/simapp"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/evdatsion/tendermint/abci/types"
 )
 
 func TestGaiadExport(t *testing.T) {

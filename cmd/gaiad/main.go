@@ -7,23 +7,23 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/cli"
-	"github.com/tendermint/tendermint/libs/log"
-	tmtypes "github.com/tendermint/tendermint/types"
-	dbm "github.com/tendermint/tm-db"
+	abci "github.com/evdatsion/tendermint/abci/types"
+	"github.com/evdatsion/tendermint/libs/cli"
+	"github.com/evdatsion/tendermint/libs/log"
+	tmtypes "github.com/evdatsion/tendermint/types"
+	dbm "github.com/evdatsion/tm-db"
 
-	"github.com/cosmos/gaia/app"
+	"github.com/evdatsion/gaia/app"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cosmos/cosmos-sdk/store"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/genaccounts"
-	genaccscli "github.com/cosmos/cosmos-sdk/x/genaccounts/client/cli"
-	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	"github.com/cosmos/cosmos-sdk/x/staking"
+	"github.com/evdatsion/cosmos-sdk/baseapp"
+	"github.com/evdatsion/cosmos-sdk/client"
+	"github.com/evdatsion/cosmos-sdk/server"
+	"github.com/evdatsion/cosmos-sdk/store"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/x/genaccounts"
+	genaccscli "github.com/evdatsion/cosmos-sdk/x/genaccounts/client/cli"
+	genutilcli "github.com/evdatsion/cosmos-sdk/x/genutil/client/cli"
+	"github.com/evdatsion/cosmos-sdk/x/staking"
 )
 
 // gaiad custom flags

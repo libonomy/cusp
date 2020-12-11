@@ -18,7 +18,7 @@ Furthermore, interaction with blockchain technology requires
 advanced technical skills and always entails risks that are outside our control.
 By using the software, you confirm that you understand the inherent risks
 associated with cryptographic software (see also risk section of the 
-[Interchain Cosmos Contribution terms](https://github.com/cosmos/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf)) and that the Interchain Foundation and/or 
+[Interchain Cosmos Contribution terms](https://github.com/evdatsion/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf)) and that the Interchain Foundation and/or 
 the Tendermint Team may not be held liable for potential damages arising out of the use of the
 software. Any use of this open source software released under the Apache 2.0 license is
 done at your own risk and on a "AS IS" basis, without warranties or conditions

@@ -10,26 +10,26 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/evdatsion/cosmos-sdk/client"
 
 	"github.com/stretchr/testify/require"
 
-	tmtypes "github.com/tendermint/tendermint/types"
+	tmtypes "github.com/evdatsion/tendermint/types"
 
-	"github.com/cosmos/gaia/app"
+	"github.com/evdatsion/gaia/app"
 
-	clientkeys "github.com/cosmos/cosmos-sdk/client/keys"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/crypto/keys"
-	"github.com/cosmos/cosmos-sdk/server"
-	"github.com/cosmos/cosmos-sdk/simapp"
-	"github.com/cosmos/cosmos-sdk/tests"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/distribution"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	"github.com/cosmos/cosmos-sdk/x/slashing"
-	"github.com/cosmos/cosmos-sdk/x/staking"
+	clientkeys "github.com/evdatsion/cosmos-sdk/client/keys"
+	"github.com/evdatsion/cosmos-sdk/codec"
+	"github.com/evdatsion/cosmos-sdk/crypto/keys"
+	"github.com/evdatsion/cosmos-sdk/server"
+	"github.com/evdatsion/cosmos-sdk/simapp"
+	"github.com/evdatsion/cosmos-sdk/tests"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/x/auth"
+	"github.com/evdatsion/cosmos-sdk/x/distribution"
+	"github.com/evdatsion/cosmos-sdk/x/gov"
+	"github.com/evdatsion/cosmos-sdk/x/slashing"
+	"github.com/evdatsion/cosmos-sdk/x/staking"
 )
 
 const (

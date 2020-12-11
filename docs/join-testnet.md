@@ -1,7 +1,7 @@
 # Join the Public Testnet 
 
 ::: tip Current Testnet
-See the [testnet repo](https://github.com/cosmos/testnets) for
+See the [testnet repo](https://github.com/evdatsion/testnets) for
 information on the latest testnet, including the correct version
 of Gaia to use and details about the genesis file.
 :::
@@ -19,7 +19,7 @@ To start a new node, the mainnet instructions apply:
 - [Join the mainnet](./join-mainnet.md)
 - [Deploy a validator](./validators/validator-setup.md)
 
-The only difference is the SDK version and genesis file. See the [testnet repo](https://github.com/cosmos/testnets) for information on testnets, including the correct version of the Cosmos-SDK to use and details about the genesis file.
+The only difference is the SDK version and genesis file. See the [testnet repo](https://github.com/evdatsion/testnets) for information on testnets, including the correct version of the Cosmos-SDK to use and details about the genesis file.
 
 ## Upgrading Your Node
 
@@ -47,7 +47,7 @@ Make sure that every node has a unique `priv_validator.json`. Do not copy the `p
 Now it is time to upgrade the software:
 
 ```bash
-cd $GOPATH/src/github.com/cosmos/gaia
+cd $GOPATH/src/github.com/evdatsion/gaia
 git fetch --all && git checkout master
 make update_tools install
 ```
@@ -57,6 +57,6 @@ make update_tools install
 :::
 
 Note we use `master` here since it contains the latest stable release.
-See the [testnet repo](https://github.com/cosmos/testnets) for details on which version is needed for which testnet, and the [Gaia release page](https://github.com/cosmos/gaia/releases) for details on each release.
+See the [testnet repo](https://github.com/evdatsion/testnets) for details on which version is needed for which testnet, and the [Gaia release page](https://github.com/evdatsion/gaia/releases) for details on each release.
 
 Your full node has been cleanly upgraded!

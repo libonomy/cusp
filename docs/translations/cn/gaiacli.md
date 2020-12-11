@@ -279,11 +279,11 @@ action标签始终等于相关message的`Type()`函数返回的消息类型。
 
 你可以在每个SDK的模块中找到目前的标签列表：
 
-- [Staking events](https://github.com/cosmos/cosmos-sdk/blob/master/x/staking/spec/07_events.md)
-- [Governance events](https://github.com/cosmos/cosmos-sdk/blob/master/x/gov/spec/04_events.md)
-- [Slashing events](https://github.com/cosmos/cosmos-sdk/blob/master/x/slashing/spec/06_events.md)
-- [Distribution events](https://github.com/cosmos/cosmos-sdk/blob/master/x/distribution/spec/06_events.md)
-- [Bank events](https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
+- [Staking events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/staking/spec/07_events.md)
+- [Governance events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/gov/spec/04_events.md)
+- [Slashing events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/slashing/spec/06_events.md)
+- [Distribution events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/distribution/spec/06_events.md)
+- [Bank events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
 :::
 
 #### 匹配一笔交易的hash
@@ -329,7 +329,7 @@ gaiacli query slashing params
 
 #### 向一个验证人委托
 
-一旦主网上线，你可以把`atom`委托给一个验证人。这些委托人可以收到部分验证人的收益。阅读[Cosmos Token Model](https://github.com/cosmos/cosmos/raw/master/Cosmos_Token_Model.pdf)了解更多信息。
+一旦主网上线，你可以把`atom`委托给一个验证人。这些委托人可以收到部分验证人的收益。阅读[Cosmos Token Model](https://github.com/evdatsion/cosmos/raw/master/Cosmos_Token_Model.pdf)了解更多信息。
 
 #### 查询验证人
 

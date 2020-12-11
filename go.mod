@@ -1,11 +1,11 @@
-module github.com/cosmos/gaia
+module github.com/evdatsion/gaia
 
 go 1.12
 
 require (
 	github.com/btcsuite/btcd v0.0.0-20190523000118-16327141da8c // indirect
-	github.com/cosmos/cosmos-sdk v0.37.15
-	github.com/cosmos/go-bip39 v0.0.0-20180819234021-555e2067c45d // indirect
+	github.com/evdatsion/cosmos-sdk v0.37.15
+	github.com/evdatsion/go-bip39 v0.0.0-20180819234021-555e2067c45d // indirect
 	github.com/golang/mock v1.3.1 // indirect
 	github.com/gorilla/mux v1.7.3 // indirect
 	github.com/mattn/go-isatty v0.0.8 // indirect

@@ -199,24 +199,24 @@ accounts to communicate important news directly to the Cosmos community.*
 
 [whitepaper]: https://cosmos.network/resources/whitepaper
 [fundraiser]: https://fundraiser.cosmos.network/
-[releases]: https://github.com/cosmos/cosmos-sdk/releases
+[releases]: https://github.com/evdatsion/cosmos-sdk/releases
 [cosmos]: https://cosmos.network/launch
 [social]: https://en.wikipedia.org/wiki/Social_engineering_%28security%29
 [phishing]: https://ssd.eff.org/en/module/how-avoid-phishing-attacks
 [spearphishing]: https://en.wikipedia.org/wiki/Phishing#Spear_phishing
 [inbox]: https://www.umass.edu/it/security/phishing-fraudulent-emails-text-messages-phone-calls
 [opportunities]: https://jia.sipa.columbia.edu/weaponization-social-media-spear-phishing-and-cyberattacks-democracy
-[cli]: https://github.com/cosmos/cosmos-sdk/blob/develop/docs/gaia/delegator-guide-cli.md
+[cli]: https://github.com/evdatsion/cosmos-sdk/blob/develop/docs/gaia/delegator-guide-cli.md
 [webinar]: https://register.gotowebinar.com/register/5028753165739687691
-[terms]: https://github.com/cosmos/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf
+[terms]: https://github.com/evdatsion/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf
 [apache]: https://www.apache.org/licenses/LICENSE-2.0
 [gos]: https://blog.cosmos.network/announcing-incentivized-testnet-game-efe64e0956f6
-[scoring]: https://github.com/cosmos/game-of-stakes/blob/master/README.md#scoring
+[scoring]: https://github.com/evdatsion/game-of-stakes/blob/master/README.md#scoring
 [file]: https://forum.cosmos.network/t/genesis-files-network-starts-vs-upgrades/1464
 [forum]: https://forum.cosmos.network/
 [riot]: https://riot.im/app/#/group/+cosmos:matrix.org
 [telegram]: http://t.me/cosmosproject
 [good]: https://www.psychologytoday.com/us/blog/mind-in-the-machine/201712/how-fear-is-being-used-manipulate-cryptocurrency-markets
-[rc]: https://github.com/cosmos/cosmos-sdk/projects/27
+[rc]: https://github.com/evdatsion/cosmos-sdk/projects/27
 [compromised site]: https://blog.malwarebytes.com/cybercrime/2013/02/tools-of-the-trade-exploit-kits/
 [quiz]: https://phishingquiz.withgoogle.com/

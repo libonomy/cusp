@@ -14,7 +14,7 @@ The tool used to generate addresses and transactions on the Cosmos Hub network i
 
 ### Before you Begin
 
-- [Install the Cosmos app onto your Ledger](https://github.com/cosmos/ledger-cosmos/blob/master/README.md#installing)
+- [Install the Cosmos app onto your Ledger](https://github.com/evdatsion/ledger-cosmos/blob/master/README.md#installing)
 - [Install Golang](https://golang.org/doc/install)
 - [Install Gaia](https://cosmos.network/docs/cosmos-hub/installation.html)
 
@@ -164,7 +164,7 @@ To learn more about using Lunie, [here is a tutorial](https://medium.com/easy2st
 
 # The Cosmos Standard Transaction
 
-Transactions in Cosmos embed the [Standard Transaction type](https://godoc.org/github.com/cosmos/cosmos-sdk/x/auth#StdTx) from the Cosmos SDK. The Ledger device displays a serialized JSON representation of this object for you to review before signing the transaction. Here are the fields and what they mean:
+Transactions in Cosmos embed the [Standard Transaction type](https://godoc.org/github.com/evdatsion/cosmos-sdk/x/auth#StdTx) from the Cosmos SDK. The Ledger device displays a serialized JSON representation of this object for you to review before signing the transaction. Here are the fields and what they mean:
 
 - `chain-id`: The chain to which you are broadcasting the tx, such as the `gaia-13003` testnet or `cosmoshub-2`: mainnet.
 - `account_number`: The global id of the sending account assigned when the account receives funds for the first time.

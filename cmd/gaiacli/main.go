@@ -5,25 +5,25 @@ import (
 	"os"
 	"path"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/keys"
-	"github.com/cosmos/cosmos-sdk/client/lcd"
-	"github.com/cosmos/cosmos-sdk/client/rpc"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/version"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	authcmd "github.com/cosmos/cosmos-sdk/x/auth/client/cli"
-	authrest "github.com/cosmos/cosmos-sdk/x/auth/client/rest"
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	bankcmd "github.com/cosmos/cosmos-sdk/x/bank/client/cli"
+	"github.com/evdatsion/cosmos-sdk/client"
+	"github.com/evdatsion/cosmos-sdk/client/keys"
+	"github.com/evdatsion/cosmos-sdk/client/lcd"
+	"github.com/evdatsion/cosmos-sdk/client/rpc"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/version"
+	"github.com/evdatsion/cosmos-sdk/x/auth"
+	authcmd "github.com/evdatsion/cosmos-sdk/x/auth/client/cli"
+	authrest "github.com/evdatsion/cosmos-sdk/x/auth/client/rest"
+	"github.com/evdatsion/cosmos-sdk/x/bank"
+	bankcmd "github.com/evdatsion/cosmos-sdk/x/bank/client/cli"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/tendermint/go-amino"
-	"github.com/tendermint/tendermint/libs/cli"
+	"github.com/evdatsion/go-amino"
+	"github.com/evdatsion/tendermint/libs/cli"
 
-	"github.com/cosmos/gaia/app"
+	"github.com/evdatsion/gaia/app"
 )
 
 func main() {

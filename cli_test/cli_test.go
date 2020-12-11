@@ -14,20 +14,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tendermint/tendermint/crypto/ed25519"
-	tmtypes "github.com/tendermint/tendermint/types"
+	"github.com/evdatsion/tendermint/crypto/ed25519"
+	tmtypes "github.com/evdatsion/tendermint/types"
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/gaia/app"
+	"github.com/evdatsion/gaia/app"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/tests"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	"github.com/cosmos/cosmos-sdk/x/genaccounts"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	"github.com/cosmos/cosmos-sdk/x/mint"
+	"github.com/evdatsion/cosmos-sdk/client"
+	"github.com/evdatsion/cosmos-sdk/tests"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/x/auth"
+	"github.com/evdatsion/cosmos-sdk/x/genaccounts"
+	"github.com/evdatsion/cosmos-sdk/x/gov"
+	"github.com/evdatsion/cosmos-sdk/x/mint"
 )
 
 func TestGaiaCLIKeysAddMultisig(t *testing.T) {

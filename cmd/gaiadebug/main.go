@@ -11,13 +11,13 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/tendermint/tendermint/crypto"
-	"github.com/tendermint/tendermint/crypto/ed25519"
+	"github.com/evdatsion/tendermint/crypto"
+	"github.com/evdatsion/tendermint/crypto/ed25519"
 
-	gaia "github.com/cosmos/gaia/app"
+	gaia "github.com/evdatsion/gaia/app"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/x/auth"
 )
 
 func init() {

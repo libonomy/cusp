@@ -7,20 +7,20 @@ import (
 	"os"
 	"path"
 
-	"github.com/cosmos/cosmos-sdk/store"
+	"github.com/evdatsion/cosmos-sdk/store"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
+	"github.com/evdatsion/cosmos-sdk/baseapp"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/ed25519"
+	abci "github.com/evdatsion/tendermint/abci/types"
+	"github.com/evdatsion/tendermint/crypto/ed25519"
 
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/evdatsion/tendermint/libs/log"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
 
-	gaia "github.com/cosmos/gaia/app"
+	gaia "github.com/evdatsion/gaia/app"
 )
 
 func runHackCmd(cmd *cobra.Command, args []string) error {

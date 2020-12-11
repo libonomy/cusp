@@ -1,7 +1,7 @@
 # 퍼블릭 테스트넷에서 밸리데이터 운영하기
 
 ::: tip
-현재 테스트넷을 참가하는 방법은 [`testnet` repo](https://github.com/cosmos/testnets/tree/master/latest)에 있습니다. 최신 테스트넷에 대한 정보를 확인하시려면 해당 링크를 확인해주세요. 
+현재 테스트넷을 참가하는 방법은 [`testnet` repo](https://github.com/evdatsion/testnets/tree/master/latest)에 있습니다. 최신 테스트넷에 대한 정보를 확인하시려면 해당 링크를 확인해주세요. 
 :::
 
 __Note__: 이 문서는 **퍼블릭 테스트넷** 검증인들을 위해서만 작성되었습니다.
@@ -88,7 +88,7 @@ mkdir -p $HOME/.gaiad/config
 curl https://raw.githubusercontent.com/cosmos/testnets/master/latest/genesis.json > $HOME/.gaiad/config/genesis.json
 ```
 
-__참고:__ 이 항목에서는 최신 테스트넷 관련 정보가 있는 [테스트넷 repo](https://github.com/cosmos/testnets)의 `latest` 디렉토리를 사용합니다. 만약 다른 테스트넷에 연결하신다면 이용하시는 파일을 확인하시기 바랍니다.
+__참고:__ 이 항목에서는 최신 테스트넷 관련 정보가 있는 [테스트넷 repo](https://github.com/evdatsion/testnets)의 `latest` 디렉토리를 사용합니다. 만약 다른 테스트넷에 연결하신다면 이용하시는 파일을 확인하시기 바랍니다.
 
 이제 다른 제네시스 밸리데이터들의 제네시스 트랜잭션을 가져옵니다. 현재 밸리데이터들이 본인들의 제네시스 트랜잭션을 제공할 수 있는 리포지토리가 없는 상태이나, 추후 테스트넷에서 검증 후 추가될 예정입니다.
 

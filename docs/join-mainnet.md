@@ -1,7 +1,7 @@
 # Join the mainnet
 
 ::: tip 
-See the [launch repo](https://github.com/cosmos/launch) for
+See the [launch repo](https://github.com/evdatsion/launch) for
 information on the mainnet, including the correct version
 of the Cosmos-SDK to use and details about the genesis file.
 :::
@@ -59,7 +59,7 @@ mkdir -p $HOME/.gaiad/config
 curl https://raw.githubusercontent.com/cosmos/launch/master/genesis.json > $HOME/.gaiad/config/genesis.json
 ```
 
-Note we use the `latest` directory in the [launch repo](https://github.com/cosmos/launch) which contains details for the mainnet like the latest version and the genesis file. 
+Note we use the `latest` directory in the [launch repo](https://github.com/evdatsion/launch) which contains details for the mainnet like the latest version and the genesis file. 
 
 ::: tip
 If you want to connect to the public testnet instead, click [here](./join-testnet.md)
@@ -73,13 +73,13 @@ gaiad start
 
 ### Add Seed Nodes
 
-Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.gaiad/config/config.toml`. The [`launch`](https://github.com/cosmos/launch) repo contains links to some seed nodes.
+Your node needs to know how to find peers. You'll need to add healthy seed nodes to `$HOME/.gaiad/config/config.toml`. The [`launch`](https://github.com/evdatsion/launch) repo contains links to some seed nodes.
 
 If those seeds aren't working, you can find more seeds and persistent peers on a Cosmos Hub explorer (a list can be found on the [launch page](https://cosmos.network/launch)). 
 
 You can also ask for peers on the [Validators Riot Room](https://riot.im/app/#/room/#cosmos-validators:matrix.org)
 
-For more information on seeds and peers, you can [read this](https://github.com/tendermint/tendermint/blob/develop/docs/tendermint-core/using-tendermint.md#peers).
+For more information on seeds and peers, you can [read this](https://github.com/evdatsion/tendermint/blob/develop/docs/tendermint-core/using-tendermint.md#peers).
 
 ## A Note on Gas and Fees
 

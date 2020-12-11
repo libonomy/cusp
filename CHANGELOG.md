@@ -78,14 +78,14 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ### Improvements
 
 * (sdk) Bump SDK version to [v0.37.6](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.6).
-* (tendermint) Bump Tendermint version to [v0.32.9](https://github.com/tendermint/tendermint/releases/tag/v0.32.9).
+* (tendermint) Bump Tendermint version to [v0.32.9](https://github.com/evdatsion/tendermint/releases/tag/v0.32.9).
 
 ## [v2.0.4] - 2020-01-09
 
 ### Improvements
 
 * (sdk) Bump SDK version to [v0.37.5](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.5).
-* (tendermint) Bump Tendermint version to [v0.32.8](https://github.com/tendermint/tendermint/releases/tag/v0.32.8).
+* (tendermint) Bump Tendermint version to [v0.32.8](https://github.com/evdatsion/tendermint/releases/tag/v0.32.8).
 
 ### Bug Fixes
 
@@ -98,14 +98,14 @@ Ref: https://keepachangelog.com/en/1.0.0/
 ### Improvements
 
 * (sdk) Bump SDK version to [v0.37.4](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.4).
-* (tendermint) Bump Tendermint version to [v0.32.7](https://github.com/tendermint/tendermint/releases/tag/v0.32.7).
+* (tendermint) Bump Tendermint version to [v0.32.7](https://github.com/evdatsion/tendermint/releases/tag/v0.32.7).
 
 ## [v2.0.2] - 2019-10-12
 
 ### Improvements
 
 * (sdk) Bump SDK version to [v0.37.3](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.37.3).
-* (tendermint) Bump Tendermint version to [v0.32.6](https://github.com/tendermint/tendermint/releases/tag/v0.32.6).
+* (tendermint) Bump Tendermint version to [v0.32.6](https://github.com/evdatsion/tendermint/releases/tag/v0.32.6).
 
 ## [v2.0.1] - 2019-09-20
 

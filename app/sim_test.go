@@ -13,29 +13,29 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
-	dbm "github.com/tendermint/tm-db"
+	abci "github.com/evdatsion/tendermint/abci/types"
+	"github.com/evdatsion/tendermint/libs/log"
+	dbm "github.com/evdatsion/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/simapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	authsim "github.com/cosmos/cosmos-sdk/x/auth/simulation"
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	distr "github.com/cosmos/cosmos-sdk/x/distribution"
-	distrsim "github.com/cosmos/cosmos-sdk/x/distribution/simulation"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	govsim "github.com/cosmos/cosmos-sdk/x/gov/simulation"
-	"github.com/cosmos/cosmos-sdk/x/mint"
-	"github.com/cosmos/cosmos-sdk/x/params"
-	paramsim "github.com/cosmos/cosmos-sdk/x/params/simulation"
-	"github.com/cosmos/cosmos-sdk/x/simulation"
-	"github.com/cosmos/cosmos-sdk/x/slashing"
-	slashingsim "github.com/cosmos/cosmos-sdk/x/slashing/simulation"
-	"github.com/cosmos/cosmos-sdk/x/staking"
-	stakingsim "github.com/cosmos/cosmos-sdk/x/staking/simulation"
-	"github.com/cosmos/cosmos-sdk/x/supply"
+	"github.com/evdatsion/cosmos-sdk/baseapp"
+	"github.com/evdatsion/cosmos-sdk/simapp"
+	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cosmos-sdk/x/auth"
+	authsim "github.com/evdatsion/cosmos-sdk/x/auth/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/bank"
+	distr "github.com/evdatsion/cosmos-sdk/x/distribution"
+	distrsim "github.com/evdatsion/cosmos-sdk/x/distribution/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/gov"
+	govsim "github.com/evdatsion/cosmos-sdk/x/gov/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/mint"
+	"github.com/evdatsion/cosmos-sdk/x/params"
+	paramsim "github.com/evdatsion/cosmos-sdk/x/params/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/slashing"
+	slashingsim "github.com/evdatsion/cosmos-sdk/x/slashing/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/staking"
+	stakingsim "github.com/evdatsion/cosmos-sdk/x/staking/simulation"
+	"github.com/evdatsion/cosmos-sdk/x/supply"
 )
 
 func init() {
@@ -364,7 +364,7 @@ func testAndRunTxs(app *GaiaApp) []simulation.WeightedOperation {
 
 func invariants(app *GaiaApp) []sdk.Invariant {
 	// TODO: fix PeriodicInvariants, it doesn't seem to call individual invariants for a period of 1
-	// Ref: https://github.com/cosmos/cosmos-sdk/issues/4631
+	// Ref: https://github.com/evdatsion/cosmos-sdk/issues/4631
 	if period == 1 {
 		return app.crisisKeeper.Invariants()
 	}
@@ -377,7 +377,7 @@ func fauxMerkleModeOpt(bapp *baseapp.BaseApp) {
 }
 
 // Profile with:
-// /usr/local/go/bin/go test -benchmem -run=^$ github.com/cosmos/cosmos-sdk/GaiaApp -bench ^BenchmarkFullAppSimulation$ -Commit=true -cpuprofile cpu.out
+// /usr/local/go/bin/go test -benchmem -run=^$ github.com/evdatsion/cosmos-sdk/GaiaApp -bench ^BenchmarkFullAppSimulation$ -Commit=true -cpuprofile cpu.out
 func BenchmarkFullAppSimulation(b *testing.B) {
 	logger := log.NewNopLogger()
 

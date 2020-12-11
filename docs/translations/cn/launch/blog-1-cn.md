@@ -10,7 +10,7 @@
 
 **Atom通证持有人务必仔细阅读以下内容，以保障您的通证能够安全委托给验证人。在您开始实际操作前，请先仔细阅读整个CLI指南并熟悉所有命令**
 
-* [CLI指南](https://github.com/cosmos/cosmos-sdk/blob/develop/docs/gaia/delegator-guide-cli.md)
+* [CLI指南](https://github.com/evdatsion/cosmos-sdk/blob/develop/docs/gaia/delegator-guide-cli.md)
 
 CLI指南中所介绍的流程是至今为止唯一经过验证的在主网实现通证委托的安全途径。这是因为指南中用到的gaiacli工具是唯一正在进行第三方安全审计的数字钱包软件，目前尚没有其他数字钱包供应商通过类似的安全审计。
 
@@ -18,7 +18,7 @@ CLI指南中所介绍的流程是至今为止唯一经过验证的在主网实�
 
 **Cosmos Hub主网仍然是个实验型的网络。在主网的早期，估计仍会出现一些问题，比如软件升级，或发现新的漏洞。现有的工具要求使用者具有很高的专业技术能力，并且可能还会存在我们跨链基金会或者Tendermint团队无法控制的风险（请见跨链 Cosmos 贡献条款中的风险部分条款）。使用Cosmos Hub开源软件需要遵守Apache 2.0授权协议，使用者需要自己承担所有风险，而且软件将依照“现状”提供，不提供任何形式的保证或条件，并且跨链基金会和/或Tendermint团队不对因软件引起的损失承担任何责任。所以，务必请谨慎行事！**
 
-* [跨链 Cosmos 贡献条款](https://github.com/cosmos/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf)
+* [跨链 Cosmos 贡献条款](https://github.com/evdatsion/cosmos/blob/master/fundraiser/Interchain%20Cosmos%20Contribution%20Terms%20-%20FINAL.pdf)
 * [Apache 2.0授权协议](https://www.apache.org/licenses/LICENSE-2.0)
 
 如果您希望获得更多关于通证委托的介绍并且愿意和Cosmos的开发者做直接的交流，您可以参加我们2月14日的线上直播，在直播中我们将介绍主网启动后通证委托的整个流程。
@@ -31,7 +31,7 @@ CLI指南中所介绍的流程是至今为止唯一经过验证的在主网实�
 
 * Cosmos-SDK 安全审计✔: 在1月初，Cosmos-SDK启动了2019年一季度计划进行的一系列第三方安全评估的第一个评估项目。此次安全评估审计持续2周半的时间，2个不同的安全审计公司对Cosmos-SDK各部分做了安全评估，而第三家安全审计公司的评估工作也正在进行中。
 * Cosmos-SDK正式发布版本: RC版本一旦完成，Cosmos-SDK的功能在主网上线前将不再变更，此后Cosmos-SDK团队将开始一轮内部漏洞检测，以便进一步确保在发布前完成最终的安全性检查。Cosmos-SDK v0.31.0 一发布，我们将启动一个新的Gaia测试网，以便在实际运行环境中找到那些在测试中难以被发现的漏洞。
-* 权益争夺赛结束: 2018年12月启动的权益争夺赛（GoS）是同类区块链网络的第一个对抗性的测试网络。GoS旨在对纯PoS网络中的经济激励和社区协作进行压力测试。到目前为止，GoS区块链网络已经完成了3次硬分叉。GoS任务结束后，我们将通过记分准则来判断获胜者，并且在整个活动结束时宣布对获胜者的奖励。[GoS记分准则](https://github.com/cosmos/game-of-stakes/blob/master/README.md#scoring)
+* 权益争夺赛结束: 2018年12月启动的权益争夺赛（GoS）是同类区块链网络的第一个对抗性的测试网络。GoS旨在对纯PoS网络中的经济激励和社区协作进行压力测试。到目前为止，GoS区块链网络已经完成了3次硬分叉。GoS任务结束后，我们将通过记分准则来判断获胜者，并且在整个活动结束时宣布对获胜者的奖励。[GoS记分准则](https://github.com/evdatsion/game-of-stakes/blob/master/README.md#scoring)
 * 创世交易的收集: 跨链基金会将对创世时Atom通证的分配情况发布一个议案，提出了对Cosmos投资者，参与者，早期贡献者和权益争夺赛的获胜者的通证分配方案。任何被推荐获得通证分配的个人（或机构）都可以提交一个gentx文件，只有提交了该文件才有可能在主网启动创世时成为Cosmos验证人。推荐分配数量和gentx收集的最终结果将保存在创世genesis文件中
 * Cosmos Hub 主网启动🔥 🚀 🌔🔥: 一旦社区接受了genesis文件， 并且占有2/3以上投票权的验证人们上线，Cosmos主网就可以启动了。
 

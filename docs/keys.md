@@ -1,6 +1,6 @@
 # Keys
 
-See the [Tendermint specification](https://github.com/tendermint/tendermint/blob/master/docs/spec/blockchain/encoding.md#public-key-cryptography) for how we work with keys.
+See the [Tendermint specification](https://github.com/evdatsion/tendermint/blob/master/docs/spec/blockchain/encoding.md#public-key-cryptography) for how we work with keys.
 
 See `gaiacli keys --help`.
 

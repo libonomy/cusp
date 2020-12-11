@@ -7,7 +7,7 @@ This document describes the upgrade procedure of a `gaiad` full-node to a new ve
 First, stop your instance of `gaiad`. Next, upgrade the software:
 
 ```bash
-cd $GOPATH/src/github.com/cosmos/gaia
+cd $GOPATH/src/github.com/evdatsion/gaia
 git fetch --all && git checkout <new_version>
 make install
 ```
@@ -16,7 +16,7 @@ make install
 *NOTE*: If you have issues at this step, please check that you have the latest stable version of GO installed.
 :::
 
-See the [testnet repo](https://github.com/cosmos/testnets) for details on which version is needed for which public testnet, and the [Gaia release page](https://github.com/cosmos/Gaia/releases) for details on each release.
+See the [testnet repo](https://github.com/evdatsion/testnets) for details on which version is needed for which public testnet, and the [Gaia release page](https://github.com/evdatsion/Gaia/releases) for details on each release.
 
 Your full node has been cleanly upgraded!
 
@@ -30,7 +30,7 @@ To upgrade the genesis file, you can either fetch it from a trusted source or ex
 
 ### Fetching from a Trusted Source
 
-If you are joining the mainnet, fetch the genesis from the [mainnet repo](https://github.com/cosmos/launch). If you are joining a public testnet, fetch the genesis from the appropriate testnet in the [testnet repo](https://github.com/cosmos/testnets). Otherwise, fetch it from your trusted source. 
+If you are joining the mainnet, fetch the genesis from the [mainnet repo](https://github.com/evdatsion/launch). If you are joining a public testnet, fetch the genesis from the appropriate testnet in the [testnet repo](https://github.com/evdatsion/testnets). Otherwise, fetch it from your trusted source. 
 
 Save the new genesis as `new_genesis.json`. Then replace the old `genesis.json` with `new_genesis.json`
 
@@ -60,7 +60,7 @@ cp -f genesis.json new_genesis.json
 mv new_genesis.json genesis.json
 ```
 
-At this point, you might want to run a script to update the exported genesis into a genesis that is compatible with your new version. For example, the attributes of a the `Account` type changed, a script should query encoded account from the account store, unmarshall them, update their type, re-marshal and re-store them. You can find an example of such script [here](https://github.com/cosmos/cosmos-sdk/blob/master/contrib/export/v0.33.x-to-v0.34.0.py).
+At this point, you might want to run a script to update the exported genesis into a genesis that is compatible with your new version. For example, the attributes of a the `Account` type changed, a script should query encoded account from the account store, unmarshall them, update their type, re-marshal and re-store them. You can find an example of such script [here](https://github.com/evdatsion/cosmos-sdk/blob/master/contrib/export/v0.33.x-to-v0.34.0.py).
 
 ## Reset Data
 

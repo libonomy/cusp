@@ -20,7 +20,7 @@ packages:
 - "xxd"
 - "quilt"
 remotes:
-- "url": "https://github.com/cosmos/gaia.git"
+- "url": "https://github.com/evdatsion/gaia.git"
   "dir": "gaia"
 files:
 - "golang-debian-1.12.5-1.tar.gz"
@@ -69,7 +69,7 @@ script: |
   popd
 
   # Prepare GOPATH and install deps
-  distsrc=${GOPATH}/src/github.com/cosmos/gaia
+  distsrc=${GOPATH}/src/github.com/evdatsion/gaia
   mkdir -p ${distsrc}
   pushd ${distsrc}
   tar --strip-components=1 -xf $SOURCEDIST
@@ -78,12 +78,12 @@ script: |
 
   # Configure LDFLAGS for reproducible builds
   LDFLAGS="-extldflags=-static -buildid=${VERSION} -s -w \
-    -X github.com/cosmos/cosmos-sdk/version.Name=gaia \
-    -X github.com/cosmos/cosmos-sdk/version.ServerName=gaiad \
-    -X github.com/cosmos/cosmos-sdk/version.ClientName=gaiacli \
-    -X github.com/cosmos/cosmos-sdk/version.Version=${VERSION} \
-    -X github.com/cosmos/cosmos-sdk/version.Commit=${COMMIT} \
-    -X github.com/cosmos/cosmos-sdk/version.BuildTags=netgo,ledger"
+    -X github.com/evdatsion/cosmos-sdk/version.Name=gaia \
+    -X github.com/evdatsion/cosmos-sdk/version.ServerName=gaiad \
+    -X github.com/evdatsion/cosmos-sdk/version.ClientName=gaiacli \
+    -X github.com/evdatsion/cosmos-sdk/version.Version=${VERSION} \
+    -X github.com/evdatsion/cosmos-sdk/version.Commit=${COMMIT} \
+    -X github.com/evdatsion/cosmos-sdk/version.BuildTags=netgo,ledger"
 
   # Extract release tarball and build
   for arch in ${ARCHS}; do

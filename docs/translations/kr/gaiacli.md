@@ -263,11 +263,11 @@ gaiacli query txs --events='message.sender=cosmos1...' --page=1 --limit=20
 
 각 SDK 모듈에 대한 `events`는 여기에서 확인할 수 있습니다:
 
-- [Staking events](https://github.com/cosmos/cosmos-sdk/blob/master/x/staking/spec/07_events.md)
-- [Governance events](https://github.com/cosmos/cosmos-sdk/blob/master/x/gov/spec/04_events.md)
-- [Slashing events](https://github.com/cosmos/cosmos-sdk/blob/master/x/slashing/spec/06_events.md)
-- [Distribution events](https://github.com/cosmos/cosmos-sdk/blob/master/x/distribution/spec/06_events.md)
-- [Bank events](https://github.com/cosmos/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
+- [Staking events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/staking/spec/07_events.md)
+- [Governance events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/gov/spec/04_events.md)
+- [Slashing events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/slashing/spec/06_events.md)
+- [Distribution events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/distribution/spec/06_events.md)
+- [Bank events](https://github.com/evdatsion/cosmos-sdk/blob/master/x/bank/spec/04_events.md)
 :::
 
 #### 트랜잭션 해시로 검색하기
@@ -311,7 +311,7 @@ gaiacli query slashing params
 
 #### 검증인에게 위임하기
 
-메인넷에서는 `atom`을 특정 검증인에게 위임할 수 있습니다. 스테이킹에 참여하는 [위임인](/resources/delegators-faq)은 검증인 보상의 일부를 받을 수 있습니다. 관련 정보는 [코스모스 토큰 모델](https://github.com/cosmos/cosmos/raw/master/Cosmos_Token_Model.pdf)에서 확인하세요.
+메인넷에서는 `atom`을 특정 검증인에게 위임할 수 있습니다. 스테이킹에 참여하는 [위임인](/resources/delegators-faq)은 검증인 보상의 일부를 받을 수 있습니다. 관련 정보는 [코스모스 토큰 모델](https://github.com/evdatsion/cosmos/raw/master/Cosmos_Token_Model.pdf)에서 확인하세요.
 
 ##### 검증인 조회하기
 

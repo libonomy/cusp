@@ -1,7 +1,7 @@
 # Run a Validator on the Cosmos Hub Mainnet
 
 ::: tip
-Information on how to join the mainnet (`genesis.json` file and seeds) is held [in our `launch` repo](https://github.com/cosmos/launch/tree/master/latest). 
+Information on how to join the mainnet (`genesis.json` file and seeds) is held [in our `launch` repo](https://github.com/evdatsion/launch/tree/master/latest). 
 :::
 
 Before setting up your validator node, make sure you've already gone through the [Full Node Setup](../join-mainnet.md) guide.
@@ -96,7 +96,7 @@ gaiad gentx \
 When specifying commission parameters, the `commission-max-change-rate` is used to measure % _point_ change over the `commission-rate`. E.g. 1% to 2% is a 100% rate increase, but only 1 percentage point.
 :::
 
-You can then submit your `gentx` on the [launch repository](https://github.com/cosmos/launch). These `gentx` will be used to form the final genesis file. 
+You can then submit your `gentx` on the [launch repository](https://github.com/evdatsion/launch). These `gentx` will be used to form the final genesis file. 
 
 ## Edit Validator Description
 

@@ -1,7 +1,7 @@
 # 在主网上运行一个验证人
 
 ::: 提示
-加入主网所需的信息(`genesis.json`和种子节点)在[`lauch` repo](https://github.com/cosmos/launch/tree/master/latest)中可以找到。
+加入主网所需的信息(`genesis.json`和种子节点)在[`lauch` repo](https://github.com/evdatsion/launch/tree/master/latest)中可以找到。
 :::
 
 在启动你验证人节点前，确定你已经完成了[启动全节点](../join-mainnet.md)教程。
@@ -93,7 +93,7 @@ gaiad gentx \
 在指定佣金相关的参数时，`commission-max-change-rate`用于标识`commission-rate`每日变动的最大百分点数。比如从1%到2%按比率是增长了100%，但只增加了1个百分点。
 :::
 
-你可以提交你的`gentx`到[launch repository](https://github.com/cosmos/launch). 这些`gentx`将会组成最终的genesis.json.
+你可以提交你的`gentx`到[launch repository](https://github.com/evdatsion/launch). 这些`gentx`将会组成最终的genesis.json.
 
 ## 编辑验证人的描述信息
 

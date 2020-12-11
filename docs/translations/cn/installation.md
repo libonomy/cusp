@@ -20,14 +20,14 @@ Cosmos SDK需要安装**Go 1.12+**
 
 ### 安装二进制执行程序
 
-接下来，安装最新版本的Gaia。需要确认您 `git checkout 了正确的[发布版本](https://github.com/cosmos/cosmos-sdk/releases)。
+接下来，安装最新版本的Gaia。需要确认您 `git checkout 了正确的[发布版本](https://github.com/evdatsion/cosmos-sdk/releases)。
 
 ::: warning
 对于主网，请确保你的版本大于或等于`v0.33.0`
 :::
 
 ```bash
-git clone -b <latest-release-tag> https://github.com/cosmos/gaia
+git clone -b <latest-release-tag> https://github.com/evdatsion/gaia
 cd gaia && make install
 ```
 
