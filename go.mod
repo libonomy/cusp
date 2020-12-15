@@ -4,7 +4,11 @@ go 1.12
 
 require (
 	github.com/btcsuite/btcd v0.0.0-20190523000118-16327141da8c // indirect
+	github.com/evdatsion/cosmos-sdk v0.37.15-rf1
+	github.com/evdatsion/go-amino v0.15.1-rf1
 	github.com/evdatsion/go-bip39 v0.0.0-20180819234021-555e2067c45d // indirect
+	github.com/evdatsion/tendermint v0.32.14-rf1
+	github.com/evdatsion/tm-db v0.2.0-rf1
 	github.com/golang/mock v1.3.1 // indirect
 	github.com/gorilla/mux v1.7.3 // indirect
 	github.com/mattn/go-isatty v0.0.8 // indirect
@@ -23,9 +27,6 @@ require (
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/viper v1.6.1
 	github.com/stretchr/testify v1.4.0
-	// github.com/evdatsion/go-amino v0.15.1
-	// github.com/evdatsion/tendermint v0.32.14
-	// github.com/evdatsion/tm-db v0.2.0
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
 	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
 	golang.org/x/text v0.3.2 // indirect

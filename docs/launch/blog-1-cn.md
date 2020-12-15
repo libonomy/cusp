@@ -39,7 +39,7 @@ CLI指南中所介绍的流程是至今为止唯一经过验证的在主网实�
 
 **以下是Cosmos有关主网启动的官方渠道**
 * Cosmos Network (twitter.com/cosmos)
-* Cosmos GitHub (github.com/evdatsion)
+* Cosmos GitHub (github.com/cosmos)
 * Cosmos Blog (blog.cosmos.network)
 **请注意Cosmos forum，Riot群，和Telegram群将不被视为官方信息发布渠道。**
 * [Cosmos forum](https://forum.cosmos.network)

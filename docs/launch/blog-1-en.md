@@ -97,7 +97,7 @@ comes online, the Cosmos mainnet will be live.
 These are the official accounts that will communicate launch details:
 
 - [Cosmos Network](https://twitter.com/cosmos)
-- [Cosmos GitHub](https://github.com/evdatsion)
+- [Cosmos GitHub](https://github.com/cosmos)
 - [Cosmos Blog](https://blog.cosmos.network)
 
 Please be aware that the [Cosmos forum][forum], [Riot chat groups][riot], and
