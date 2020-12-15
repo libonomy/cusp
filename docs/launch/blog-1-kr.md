@@ -43,7 +43,7 @@
 런칭 관련 소식을 전하는 공식 소통 채널은 다음과 같습니다:
 
 * 코스모스 트위터 (twitter.com/cosmos)
-* 코스모스 깃허브 (github.com/cosmos)
+* 코스모스 깃허브 (github.com/evdatsion)
 * 코스모스 블로그 (blog.cosmos.network)
 
 또한 [코스모스 포럼](https://forum.cosmos.network/), [라이엇 그룹 채팅](https://riot.im/app/#/group/+cosmos:matrix.org) 그리고 [텔레그램 방](http://t.me/cosmosproject)은 코스모스의 공식적인 소식을 전달하는 채널이 아니라는 것을 인지하시기 바랍니다.
