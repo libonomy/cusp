@@ -48,7 +48,7 @@ import (
 	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
 	dbm "github.com/evdatsion/tm-db"
 
-	gapp "github.com/evdatsion/cusp/app"
+	gapp "github.com/libonomy/cusp/app"
 )
 
 // TODO: Make InitializeTestLCD safe to call in multiple tests at the same time

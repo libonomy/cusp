@@ -13,7 +13,7 @@ import (
 	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
 	dbm "github.com/evdatsion/tm-db"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 
 	"github.com/evdatsion/cusp-sdk/baseapp"
 	"github.com/evdatsion/cusp-sdk/client"

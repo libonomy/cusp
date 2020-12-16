@@ -14,7 +14,7 @@ import (
 	"github.com/evdatsion/aphelion-dpos-bft/crypto"
 	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
 
-	cusp "github.com/evdatsion/cusp/app"
+	cusp "github.com/libonomy/cusp/app"
 
 	sdk "github.com/evdatsion/cusp-sdk/types"
 	"github.com/evdatsion/cusp-sdk/x/auth"

@@ -5,7 +5,7 @@ import (
 
 	"github.com/evdatsion/aphelion-dpos-bft/crypto/secp256k1"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 
 	sdk "github.com/evdatsion/cusp-sdk/types"
 	"github.com/evdatsion/cusp-sdk/x/auth"

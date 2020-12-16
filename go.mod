@@ -1,4 +1,4 @@
-module github.com/evdatsion/cusp
+module github.com/libonomy/cusp
 
 go 1.12
 

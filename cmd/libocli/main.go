@@ -23,7 +23,7 @@ import (
 	"github.com/evdatsion/go-amino"
 	"github.com/evdatsion/aphelion-dpos-bft/libs/cli"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 )
 
 func main() {

@@ -16,7 +16,7 @@ import (
 
 	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 
 	clientkeys "github.com/evdatsion/cusp-sdk/client/keys"
 	"github.com/evdatsion/cusp-sdk/codec"

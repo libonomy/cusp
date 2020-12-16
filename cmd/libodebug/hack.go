@@ -20,7 +20,7 @@ import (
 
 	sdk "github.com/evdatsion/cusp-sdk/types"
 
-	cusp "github.com/evdatsion/cusp/app"
+	cusp "github.com/libonomy/cusp/app"
 )
 
 func runHackCmd(cmd *cobra.Command, args []string) error {

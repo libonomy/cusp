@@ -333,11 +333,11 @@ jobs:
               rm -rf gitian-build-${os}/
             done
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/cusp/cusp-darwin-res.yml
+          path: /go/src/github.com/libonomy/cusp/cusp-darwin-res.yml
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/cusp/cusp-linux-res.yml
+          path: /go/src/github.com/libonomy/cusp/cusp-linux-res.yml
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/cusp/cusp-windows-res.yml
+          path: /go/src/github.com/libonomy/cusp/cusp-windows-res.yml
 
 # FIXME: The `setup-contract-tests-data` make target is broken as it completely
 # overrides the .libod directory.

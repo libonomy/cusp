@@ -17,7 +17,7 @@ import (
 	tmstore "github.com/evdatsion/aphelion-dpos-bft/store"
 	tm "github.com/evdatsion/aphelion-dpos-bft/types"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 
 	"github.com/evdatsion/cusp-sdk/baseapp"
 	"github.com/evdatsion/cusp-sdk/server"

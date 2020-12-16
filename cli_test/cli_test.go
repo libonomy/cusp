@@ -19,7 +19,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/evdatsion/cusp/app"
+	"github.com/libonomy/cusp/app"
 
 	"github.com/evdatsion/cusp-sdk/client"
 	"github.com/evdatsion/cusp-sdk/tests"

@@ -4,7 +4,7 @@
 ### Simulations
 
 BINDIR ?= $(GOPATH)/bin
-SIMAPP = github.com/evdatsion/cusp/app
+SIMAPP = github.com/libonomy/cusp/app
 
 test-sim-nondeterminism:
 	@echo "Running non-determinism test..."
