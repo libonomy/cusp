@@ -33,7 +33,7 @@ import (
 
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
-	ctypes "github.com/evdatsion/tendermint/rpc/core/types"
+	ctypes "github.com/evdatsion/aphelion-dpos-bft/rpc/core/types"
 )
 
 // Request makes a test LCD test request. It returns a response object and a

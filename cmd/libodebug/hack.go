@@ -13,10 +13,10 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	abci "github.com/evdatsion/tendermint/abci/types"
-	"github.com/evdatsion/tendermint/crypto/ed25519"
+	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
+	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
 
-	"github.com/evdatsion/tendermint/libs/log"
+	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
 
 	sdk "github.com/evdatsion/cosmos-sdk/types"
 

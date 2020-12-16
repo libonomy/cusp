@@ -10,12 +10,12 @@ import (
 	cpm "github.com/otiai10/copy"
 	"github.com/spf13/cobra"
 
-	abci "github.com/evdatsion/tendermint/abci/types"
-	cmn "github.com/evdatsion/tendermint/libs/common"
-	"github.com/evdatsion/tendermint/proxy"
-	tmsm "github.com/evdatsion/tendermint/state"
-	tmstore "github.com/evdatsion/tendermint/store"
-	tm "github.com/evdatsion/tendermint/types"
+	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
+	cmn "github.com/evdatsion/aphelion-dpos-bft/libs/common"
+	"github.com/evdatsion/aphelion-dpos-bft/proxy"
+	tmsm "github.com/evdatsion/aphelion-dpos-bft/state"
+	tmstore "github.com/evdatsion/aphelion-dpos-bft/store"
+	tm "github.com/evdatsion/aphelion-dpos-bft/types"
 
 	"github.com/evdatsion/cusp/app"
 

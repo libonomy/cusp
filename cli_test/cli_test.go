@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/evdatsion/tendermint/crypto/ed25519"
-	tmtypes "github.com/evdatsion/tendermint/types"
+	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
+	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
 
 	"github.com/stretchr/testify/require"
 

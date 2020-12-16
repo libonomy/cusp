@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/viper"
 
 	"github.com/evdatsion/go-amino"
-	"github.com/evdatsion/tendermint/libs/cli"
+	"github.com/evdatsion/aphelion-dpos-bft/libs/cli"
 
 	"github.com/evdatsion/cusp/app"
 )
