@@ -47,9 +47,9 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/evdatsion/cosmos-sdk/version.Name=gaia \
-		  -X github.com/evdatsion/cosmos-sdk/version.ServerName=gaiad \
-		  -X github.com/evdatsion/cosmos-sdk/version.ClientName=gaiacli \
+ldflags = -X github.com/evdatsion/cosmos-sdk/version.Name=cusp \
+		  -X github.com/evdatsion/cosmos-sdk/version.ServerName=libod \
+		  -X github.com/evdatsion/cosmos-sdk/version.ClientName=libocli \
 		  -X github.com/evdatsion/cosmos-sdk/version.Version=$(VERSION) \
 		  -X github.com/evdatsion/cosmos-sdk/version.Commit=$(COMMIT) \
 		  -X "github.com/evdatsion/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)"
@@ -69,11 +69,11 @@ all: install lint check
 
 build: go.sum
 ifeq ($(OS),Windows_NT)
-	go build -mod=readonly $(BUILD_FLAGS) -o build/gaiad.exe ./cmd/gaiad
-	go build -mod=readonly $(BUILD_FLAGS) -o build/gaiacli.exe ./cmd/gaiacli
+	go build -mod=readonly $(BUILD_FLAGS) -o build/libod.exe ./cmd/libod
+	go build -mod=readonly $(BUILD_FLAGS) -o build/libocli.exe ./cmd/libocli
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/gaiad ./cmd/gaiad
-	go build -mod=readonly $(BUILD_FLAGS) -o build/gaiacli ./cmd/gaiacli
+	go build -mod=readonly $(BUILD_FLAGS) -o build/libod ./cmd/libod
+	go build -mod=readonly $(BUILD_FLAGS) -o build/libocli ./cmd/libocli
 endif
 
 build-linux: go.sum
@@ -87,11 +87,11 @@ else
 endif
 
 install: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/gaiad
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/gaiacli
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libod
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libocli
 
 install-debug: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/gaiadebug
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libodebug
 
 ########################################
 ### Tools & dependencies
@@ -107,7 +107,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go get github.com/RobotsAndPencils/goviz
-	@goviz -i ./cmd/gaiad -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i ./cmd/libod -d 2 | dot -Tpng -o dependency-graph.png
 
 clean:
 	rm -rf snapcraft-local.yaml build/
@@ -152,12 +152,12 @@ benchmark:
 ########################################
 ### Local validator nodes using docker and docker-compose
 
-build-docker-gaiadnode:
+build-docker-libodnode:
 	$(MAKE) -C networks/local
 
 # Run a 4-node testnet locally
 localnet-start: build-linux localnet-stop
-	@if ! [ -f build/node0/gaiad/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/gaiad:Z tendermint/gaiadnode testnet --v 4 -o . --starting-ip-address 192.168.10.2 ; fi
+	@if ! [ -f build/node0/libod/config/genesis.json ]; then docker run --rm -v $(CURDIR)/build:/libod:Z tendermint/libodnode testnet --v 4 -o . --starting-ip-address 192.168.10.2 ; fi
 	docker-compose up -d
 
 # Stop testnet
@@ -169,28 +169,28 @@ setup-contract-tests-data:
 	rm -rf /tmp/contract_tests ; \
 	mkdir /tmp/contract_tests ; \
 	cp "${GOPATH}/pkg/mod/${SDK_PACK}/client/lcd/swagger-ui/swagger.yaml" /tmp/contract_tests/swagger.yaml ; \
-	./build/gaiad init --home /tmp/contract_tests/.gaiad --chain-id lcd contract-tests ; \
+	./build/libod init --home /tmp/contract_tests/.libod --chain-id lcd contract-tests ; \
 	tar -xzf lcd_test/testdata/state.tar.gz -C /tmp/contract_tests/
 
-start-gaia: setup-contract-tests-data
-	./build/gaiad --home /tmp/contract_tests/.gaiad start &
+start-cusp: setup-contract-tests-data
+	./build/libod --home /tmp/contract_tests/.libod start &
 	@sleep 2s
 
-setup-transactions: start-gaia
+setup-transactions: start-cusp
 	@bash ./lcd_test/testdata/setup.sh
 
 run-lcd-contract-tests:
-	@echo "Running Gaia LCD for contract tests"
-	./build/gaiacli rest-server --laddr tcp://0.0.0.0:8080 --home /tmp/contract_tests/.gaiacli --node http://localhost:26657 --chain-id lcd --trust-node true
+	@echo "Running cusp LCD for contract tests"
+	./build/libocli rest-server --laddr tcp://0.0.0.0:8080 --home /tmp/contract_tests/.libocli --node http://localhost:26657 --chain-id lcd --trust-node true
 
 contract-tests: setup-transactions
-	@echo "Running Gaia LCD for contract tests"
-	dredd && pkill gaiad
+	@echo "Running cusp LCD for contract tests"
+	dredd && pkill libod
 
 # include simulations
 include sims.mk
 
 .PHONY: all build-linux install install-debug \
 	go-mod-cache draw-deps clean build \
-	setup-transactions setup-contract-tests-data start-gaia run-lcd-contract-tests contract-tests \
+	setup-transactions setup-contract-tests-data start-cusp run-lcd-contract-tests contract-tests \
 	test test-all test-build test-cover test-unit test-race

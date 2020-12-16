@@ -98,35 +98,35 @@ jobs:
     steps:
       - make:
           target: test-sim-nondeterminism
-          description: "Test Gaia non-determinism simulations"
+          description: "Test Cusp non-determinism simulations"
 
   test-sim-import-export:
     executor: golang
     steps:
       - make:
           target: test-sim-import-export
-          description: "Test Gaia import/export simulation"
+          description: "Test Cusp import/export simulation"
 
   test-sim-after-import:
     executor: golang
     steps:
       - make:
           target: test-sim-after-import
-          description: "Test Gaia simulation after importing state"
+          description: "Test Cusp simulation after importing state"
 
   test-sim-multi-seed-short:
     executor: golang
     steps:
       - make:
           target: test-sim-multi-seed-short
-          description: "Test Gaia multi-seed simulation (short-lived)"
+          description: "Test Cusp multi-seed simulation (short-lived)"
 
   test-sim-multi-seed-long:
     executor: golang
     steps:
       - make:
           target: test-sim-multi-seed-long
-          description: "Test Gaia multi-seed simulation (long-lived)"
+          description: "Test Cusp multi-seed simulation (long-lived)"
 
   integration-tests:
     executor: golang
@@ -188,7 +188,7 @@ jobs:
           command: |
             excludelist="$(find . -type f -name '*.go' | xargs grep -l 'DONTCOVER')"
             for filename in ${excludelist}; do
-              filename=$(echo $filename | sed 's/^./github.com\/cosmos\/gaia/g')
+              filename=$(echo $filename | sed 's/^./github.com\/cosmos\/cusp/g')
               echo "Excluding ${filename} from coverage report..."
               sed -i.bak "/$(echo $filename | sed 's/\//\\\//g')/d" coverage.txt
             done
@@ -197,7 +197,7 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) -f coverage.txt
 
   localnet:
-    working_directory: /home/circleci/.go_workspace/src/github.com/evdatsion/gaia
+    working_directory: /home/circleci/.go_workspace/src/github.com/evdatsion/cusp
     machine:
       image: circleci/classic:latest
     environment:
@@ -271,10 +271,10 @@ jobs:
           command: source $BASH_ENV
             make test-build
       - run:
-          name: Test full gaia simulation
+          name: Test full cusp simulation
           command: |
             source $BASH_ENV
-            make sim-gaia-fast
+            make sim-cusp-fast
 
   docker-image:
     executor: golang
@@ -285,20 +285,20 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: |
-          GAIAD_VERSION=''
+          LIBOD_VERSION=''
           if [ "${CIRCLE_BRANCH}" = "master" ]; then
-            GAIAD_VERSION="stable"
+            LIBOD_VERSION="stable"
           elif [ "${CIRCLE_BRANCH}" = "develop" ]; then
-            GAIAD_VERSION="develop"
+            LIBOD_VERSION="develop"
           elif [[ "${CIRCLE_BRANCH}" == release/v* ]]; then
-            GAIAD_VERSION="${CIRCLE_BRANCH}"
+            LIBOD_VERSION="${CIRCLE_BRANCH}"
           fi
-          if [ -z "${GAIAD_VERSION}" ]; then
+          if [ -z "${LIBOD_VERSION}" ]; then
             docker build .
           else
-            docker build -t tendermint/gaia:$GAIAD_VERSION .
+            docker build -t tendermint/cusp:$LIBOD_VERSION .
             docker login --password-stdin -u $DOCKER_USER \<<<$DOCKER_PASS
-            docker push tendermint/gaia:$GAIAD_VERSION
+            docker push tendermint/cusp:$LIBOD_VERSION
           fi
 
   docker-tagged:
@@ -310,9 +310,9 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: |
-          docker build -t tendermint/gaia:$CIRCLE_TAG .
+          docker build -t tendermint/cusp:$CIRCLE_TAG .
           docker login --password-stdin -u $DOCKER_USER \<<$DOCKER_PASS
-          docker push tendermint/gaia:$CIRCLE_TAG
+          docker push tendermint/cusp:$CIRCLE_TAG
 
   reproducible-builds:
     executor: golang
@@ -323,24 +323,24 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
-          name: Build gaia
+          name: Build cusp
           no_output_timeout: 20m
           command: |
             sudo apt-get install -y ruby
             bash -x ./contrib/gitian-build.sh all
             for os in darwin linux windows; do
-              cp gitian-build-${os}/result/gaia-${os}-res.yml .
+              cp gitian-build-${os}/result/cusp-${os}-res.yml .
               rm -rf gitian-build-${os}/
             done
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/gaia/gaia-darwin-res.yml
+          path: /go/src/github.com/evdatsion/cusp/cusp-darwin-res.yml
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/gaia/gaia-linux-res.yml
+          path: /go/src/github.com/evdatsion/cusp/cusp-linux-res.yml
       - store_artifacts:
-          path: /go/src/github.com/evdatsion/gaia/gaia-windows-res.yml
+          path: /go/src/github.com/evdatsion/cusp/cusp-windows-res.yml
 
 # FIXME: The `setup-contract-tests-data` make target is broken as it completely
-# overrides the .gaiad directory.
+# overrides the .libod directory.
 #
 #  contract_tests:
 #    executor: golang

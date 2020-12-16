@@ -23,7 +23,7 @@ import (
 	"github.com/evdatsion/go-amino"
 	"github.com/evdatsion/tendermint/libs/cli"
 
-	"github.com/evdatsion/gaia/app"
+	"github.com/evdatsion/cusp/app"
 )
 
 func main() {
@@ -45,8 +45,8 @@ func main() {
 	// with the cdc
 
 	rootCmd := &cobra.Command{
-		Use:   "gaiacli",
-		Short: "Command line interface for interacting with gaiad",
+		Use:   "libocli",
+		Short: "Command line interface for interacting with libod",
 	}
 
 	// Add --chain-id to persistent flags and mark it required

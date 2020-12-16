@@ -1,14 +1,14 @@
 [Unit]
-Description=gaiad
+Description=libod
 Requires=network-online.target
 After=network-online.target
 
 [Service]
 Restart=on-failure
-User=gaiad
-Group=gaiad
+User=libod
+Group=libod
 PermissionsStartOnly=true
-ExecStart=/usr/bin/gaiad start
+ExecStart=/usr/bin/libod start
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 

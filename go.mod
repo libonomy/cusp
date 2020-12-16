@@ -1,4 +1,4 @@
-module github.com/evdatsion/gaia
+module github.com/evdatsion/cusp
 
 go 1.12
 

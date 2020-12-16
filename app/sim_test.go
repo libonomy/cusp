@@ -60,7 +60,7 @@ func init() {
 }
 
 // helper function for populating input for SimulateFromSeed
-func getSimulateFromSeedInput(tb testing.TB, w io.Writer, app *GaiaApp) (
+func getSimulateFromSeedInput(tb testing.TB, w io.Writer, app *CuspApp) (
 	testing.TB, io.Writer, *baseapp.BaseApp, simulation.AppStateFn, int64,
 	simulation.WeightedOperations, sdk.Invariants, int, int, int, int, string,
 	bool, bool, bool, bool, bool, map[string]bool) {
@@ -169,7 +169,7 @@ func appStateRandomizedFn(
 	return appState, accs, "simulation"
 }
 
-func testAndRunTxs(app *GaiaApp) []simulation.WeightedOperation {
+func testAndRunTxs(app *CuspApp) []simulation.WeightedOperation {
 	cdc := MakeCodec()
 	ap := make(simulation.AppParams)
 
@@ -362,7 +362,7 @@ func testAndRunTxs(app *GaiaApp) []simulation.WeightedOperation {
 	}
 }
 
-func invariants(app *GaiaApp) []sdk.Invariant {
+func invariants(app *CuspApp) []sdk.Invariant {
 	// TODO: fix PeriodicInvariants, it doesn't seem to call individual invariants for a period of 1
 	// Ref: https://github.com/evdatsion/cosmos-sdk/issues/4631
 	if period == 1 {
@@ -377,7 +377,7 @@ func fauxMerkleModeOpt(bapp *baseapp.BaseApp) {
 }
 
 // Profile with:
-// /usr/local/go/bin/go test -benchmem -run=^$ github.com/evdatsion/cosmos-sdk/GaiaApp -bench ^BenchmarkFullAppSimulation$ -Commit=true -cpuprofile cpu.out
+// /usr/local/go/bin/go test -benchmem -run=^$ github.com/evdatsion/cosmos-sdk/CuspApp -bench ^BenchmarkFullAppSimulation$ -Commit=true -cpuprofile cpu.out
 func BenchmarkFullAppSimulation(b *testing.B) {
 	logger := log.NewNopLogger()
 
@@ -388,7 +388,7 @@ func BenchmarkFullAppSimulation(b *testing.B) {
 		db.Close()
 		_ = os.RemoveAll(dir)
 	}()
-	app := NewGaiaApp(logger, db, nil, true, 0)
+	app := NewCuspApp(logger, db, nil, true, 0)
 
 	// Run randomized simulation
 	// TODO: parameterize numbers, save for a later PR
@@ -458,8 +458,8 @@ func TestFullAppSimulation(t *testing.T) {
 		_ = os.RemoveAll(dir)
 	}()
 
-	app := NewGaiaApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
-	require.Equal(t, "GaiaApp", app.Name())
+	app := NewCuspApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
+	require.Equal(t, "CuspApp", app.Name())
 
 	// Run randomized simulation
 	_, params, simErr := simulation.SimulateFromSeed(getSimulateFromSeedInput(t, os.Stdout, app))
@@ -516,7 +516,7 @@ func TestAppImportExport(t *testing.T) {
 		_ = os.RemoveAll(dir)
 	}()
 
-	app := NewGaiaApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
+	app := NewCuspApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
 	require.Equal(t, "SimApp", app.Name())
 
 	// Run randomized simulation
@@ -565,7 +565,7 @@ func TestAppImportExport(t *testing.T) {
 		os.RemoveAll(newDir)
 	}()
 
-	newApp := NewGaiaApp(log.NewNopLogger(), newDB, nil, true, 0, fauxMerkleModeOpt)
+	newApp := NewCuspApp(log.NewNopLogger(), newDB, nil, true, 0, fauxMerkleModeOpt)
 	require.Equal(t, "SimApp", newApp.Name())
 
 	var genesisState simapp.GenesisState
@@ -634,8 +634,8 @@ func TestAppSimulationAfterImport(t *testing.T) {
 		os.RemoveAll(dir)
 	}()
 
-	app := NewGaiaApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
-	require.Equal(t, "GaiaApp", app.Name())
+	app := NewCuspApp(logger, db, nil, true, 0, fauxMerkleModeOpt)
+	require.Equal(t, "CuspApp", app.Name())
 
 	// Run randomized simulation
 	stopEarly, params, simErr := simulation.SimulateFromSeed(getSimulateFromSeedInput(t, os.Stdout, app))
@@ -692,8 +692,8 @@ func TestAppSimulationAfterImport(t *testing.T) {
 		os.RemoveAll(newDir)
 	}()
 
-	newApp := NewGaiaApp(log.NewNopLogger(), newDB, nil, true, 0, fauxMerkleModeOpt)
-	require.Equal(t, "GaiaApp", newApp.Name())
+	newApp := NewCuspApp(log.NewNopLogger(), newDB, nil, true, 0, fauxMerkleModeOpt)
+	require.Equal(t, "CuspApp", newApp.Name())
 	newApp.InitChain(abci.RequestInitChain{
 		AppStateBytes: appState,
 	})
@@ -719,7 +719,7 @@ func TestAppStateDeterminism(t *testing.T) {
 		for j := 0; j < numTimesToRunPerSeed; j++ {
 			logger := log.NewNopLogger()
 			db := dbm.NewMemDB()
-			app := NewGaiaApp(logger, db, nil, true, 0)
+			app := NewCuspApp(logger, db, nil, true, 0)
 
 			// Run randomized simulation
 			simulation.SimulateFromSeed(
@@ -747,7 +747,7 @@ func BenchmarkInvariants(b *testing.B) {
 		os.RemoveAll(dir)
 	}()
 
-	app := NewGaiaApp(logger, db, nil, true, 0)
+	app := NewCuspApp(logger, db, nil, true, 0)
 	exportParams := exportParamsPath != ""
 
 	// 2. Run parameterized simulation (w/o invariants)

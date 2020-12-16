@@ -1,14 +1,14 @@
 [Unit]
-Description=gaiacli
+Description=libocli
 Requires=network-online.target
 After=network-online.target
 
 [Service]
 Restart=on-failure
-User=gaiad
-Group=gaiad
+User=libod
+Group=libod
 PermissionsStartOnly=true
-ExecStart=/usr/bin/gaiacli rest-server --laddr {{GAIACLI_ADDRESS}}
+ExecStart=/usr/bin/libocli rest-server --laddr {{CUSPCLI_ADDRESS}}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 

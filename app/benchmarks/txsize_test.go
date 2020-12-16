@@ -5,7 +5,7 @@ import (
 
 	"github.com/evdatsion/tendermint/crypto/secp256k1"
 
-	"github.com/evdatsion/gaia/app"
+	"github.com/evdatsion/cusp/app"
 
 	sdk "github.com/evdatsion/cosmos-sdk/types"
 	"github.com/evdatsion/cosmos-sdk/x/auth"

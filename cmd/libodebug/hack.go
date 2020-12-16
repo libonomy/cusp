@@ -20,7 +20,7 @@ import (
 
 	sdk "github.com/evdatsion/cosmos-sdk/types"
 
-	gaia "github.com/evdatsion/gaia/app"
+	cusp "github.com/evdatsion/cusp/app"
 )
 
 func runHackCmd(cmd *cobra.Command, args []string) error {
@@ -29,18 +29,18 @@ func runHackCmd(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("Expected 1 arg")
 	}
 
-	// ".gaiad"
+	// ".libod"
 	dataDir := args[0]
 	dataDir = path.Join(dataDir, "data")
 
 	// load the app
 	logger := log.NewTMLogger(log.NewSyncWriter(os.Stdout))
-	db, err := sdk.NewLevelDB("gaia", dataDir)
+	db, err := sdk.NewLevelDB("cusp", dataDir)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	app, keyMain, keyStaking, stakingKeeper := gaia.NewGaiaAppUNSAFE(
+	app, keyMain, keyStaking, stakingKeeper := cusp.NewCuspAppUNSAFE(
 		logger, db, nil, false, 0, baseapp.SetPruning(store.NewPruningOptionsFromString(viper.GetString("pruning"))))
 
 	// print some info
@@ -52,7 +52,7 @@ func runHackCmd(cmd *cobra.Command, args []string) error {
 	//----------------------------------------------------
 	// XXX: start hacking!
 	//----------------------------------------------------
-	// eg. gaia-6001 testnet bug
+	// eg. cusp-6001 testnet bug
 	// We paniced when iterating through the "bypower" keys.
 	// The following powerKey was there, but the corresponding "trouble" validator did not exist.
 	// So here we do a binary search on the past states to find when the powerKey first showed up ...
