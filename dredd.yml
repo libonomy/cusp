@@ -31,3 +31,4 @@ config: ./dredd.yml
 # This path accepts no variables
 blueprint: /tmp/contract_tests/swagger.yaml
 endpoint: 'http://127.0.0.1:8080'
+#remove contracting for later support @junaidkhan
