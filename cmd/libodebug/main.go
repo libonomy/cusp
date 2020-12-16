@@ -16,8 +16,8 @@ import (
 
 	cusp "github.com/evdatsion/cusp/app"
 
-	sdk "github.com/evdatsion/cosmos-sdk/types"
-	"github.com/evdatsion/cosmos-sdk/x/auth"
+	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/evdatsion/cusp-sdk/x/auth"
 )
 
 func init() {

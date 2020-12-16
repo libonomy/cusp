@@ -14,10 +14,10 @@ This repository hosts `Cusp`, the first implementation of the Cosmos Hub.
 **Note**: Requires [Go 1.13+](https://golang.org/dl/)
 
 **DISCLAIMER**: The current version of Cusp running the Cosmos Hub (v0.34.x) is
-__NOT__ maintained in this repository. Cusp and the [Cosmos SDK](https://github.com/evdatsion/cosmos-sdk/)
+__NOT__ maintained in this repository. Cusp and the [Cosmos SDK](https://github.com/evdatsion/cusp-sdk/)
 have been recently split. All future versions of Cusp, including the next major
 upgrade, will be maintained in this repository. However, until the next major upgrade,
-Cusp should be fetched and built from the latest [released](https://github.com/evdatsion/cosmos-sdk/releases)
+Cusp should be fetched and built from the latest [released](https://github.com/evdatsion/cusp-sdk/releases)
 __v0.34.x__ version in the SDK repository. In addition, this repository should be
 considered unstable until the next major release of Cusp. Please bear with us
 while we continue the migration process and update documentation.

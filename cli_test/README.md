@@ -10,7 +10,7 @@ go test -mod=readonly -p 4 `go list ./cli_test/...` -tags=cli_test
 
 ### Test Structure
 
-This integration suite [uses a thin wrapper](https://godoc.org/github.com/evdatsion/cosmos-sdk/tests) over the [`os/exec`](https://golang.org/pkg/os/exec/) package. This allows the integration test to run against built binaries (both `libod` and `libocli` are used) while being written in golang. This allows tests to take advantage of the various golang code we have for operations like marshal/unmarshal, crypto, etc...
+This integration suite [uses a thin wrapper](https://godoc.org/github.com/evdatsion/cusp-sdk/tests) over the [`os/exec`](https://golang.org/pkg/os/exec/) package. This allows the integration test to run against built binaries (both `libod` and `libocli` are used) while being written in golang. This allows tests to take advantage of the various golang code we have for operations like marshal/unmarshal, crypto, etc...
 
 > NOTE: The tests will use whatever `libod` or `libocli` binaries are available in your `$PATH`. You can check which binary will be run by the suite by running `which libod` or `which libocli`. If you have your `$GOPATH` properly setup they should be in `$GOPATH/bin/cusp*`. This will ensure that your test uses the latest binary you have built
 

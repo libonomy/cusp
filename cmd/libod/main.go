@@ -15,15 +15,15 @@ import (
 
 	"github.com/evdatsion/cusp/app"
 
-	"github.com/evdatsion/cosmos-sdk/baseapp"
-	"github.com/evdatsion/cosmos-sdk/client"
-	"github.com/evdatsion/cosmos-sdk/server"
-	"github.com/evdatsion/cosmos-sdk/store"
-	sdk "github.com/evdatsion/cosmos-sdk/types"
-	"github.com/evdatsion/cosmos-sdk/x/genaccounts"
-	genaccscli "github.com/evdatsion/cosmos-sdk/x/genaccounts/client/cli"
-	genutilcli "github.com/evdatsion/cosmos-sdk/x/genutil/client/cli"
-	"github.com/evdatsion/cosmos-sdk/x/staking"
+	"github.com/evdatsion/cusp-sdk/baseapp"
+	"github.com/evdatsion/cusp-sdk/client"
+	"github.com/evdatsion/cusp-sdk/server"
+	"github.com/evdatsion/cusp-sdk/store"
+	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/evdatsion/cusp-sdk/x/genaccounts"
+	genaccscli "github.com/evdatsion/cusp-sdk/x/genaccounts/client/cli"
+	genutilcli "github.com/evdatsion/cusp-sdk/x/genutil/client/cli"
+	"github.com/evdatsion/cusp-sdk/x/staking"
 )
 
 // libod custom flags

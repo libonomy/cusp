@@ -18,18 +18,18 @@ import (
 	"github.com/evdatsion/aphelion-dpos-bft/types"
 	tmtime "github.com/evdatsion/aphelion-dpos-bft/types/time"
 
-	"github.com/evdatsion/cosmos-sdk/client"
-	"github.com/evdatsion/cosmos-sdk/client/keys"
-	"github.com/evdatsion/cosmos-sdk/codec"
-	"github.com/evdatsion/cosmos-sdk/server"
-	srvconfig "github.com/evdatsion/cosmos-sdk/server/config"
-	sdk "github.com/evdatsion/cosmos-sdk/types"
-	"github.com/evdatsion/cosmos-sdk/types/module"
-	"github.com/evdatsion/cosmos-sdk/x/auth"
-	"github.com/evdatsion/cosmos-sdk/x/genaccounts"
-	"github.com/evdatsion/cosmos-sdk/x/genutil"
-	genutiltypes "github.com/evdatsion/cosmos-sdk/x/genutil/types"
-	"github.com/evdatsion/cosmos-sdk/x/staking"
+	"github.com/evdatsion/cusp-sdk/client"
+	"github.com/evdatsion/cusp-sdk/client/keys"
+	"github.com/evdatsion/cusp-sdk/codec"
+	"github.com/evdatsion/cusp-sdk/server"
+	srvconfig "github.com/evdatsion/cusp-sdk/server/config"
+	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/evdatsion/cusp-sdk/types/module"
+	"github.com/evdatsion/cusp-sdk/x/auth"
+	"github.com/evdatsion/cusp-sdk/x/genaccounts"
+	"github.com/evdatsion/cusp-sdk/x/genutil"
+	genutiltypes "github.com/evdatsion/cusp-sdk/x/genutil/types"
+	"github.com/evdatsion/cusp-sdk/x/staking"
 )
 
 var (
@@ -236,7 +236,7 @@ func InitTestnet(cmd *cobra.Command, config *tmconfig.Config, cdc *codec.Codec,
 		}
 
 		// TODO: Rename config file to server.toml as it's not particular to Cusp
-		// (REF: https://github.com/evdatsion/cosmos-sdk/issues/4125).
+		// (REF: https://github.com/evdatsion/cusp-sdk/issues/4125).
 		cuspConfigFilePath := filepath.Join(nodeDir, "config/libod.toml")
 		srvconfig.WriteConfigFile(cuspConfigFilePath, cuspConfig)
 	}

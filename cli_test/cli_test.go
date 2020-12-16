@@ -21,13 +21,13 @@ import (
 
 	"github.com/evdatsion/cusp/app"
 
-	"github.com/evdatsion/cosmos-sdk/client"
-	"github.com/evdatsion/cosmos-sdk/tests"
-	sdk "github.com/evdatsion/cosmos-sdk/types"
-	"github.com/evdatsion/cosmos-sdk/x/auth"
-	"github.com/evdatsion/cosmos-sdk/x/genaccounts"
-	"github.com/evdatsion/cosmos-sdk/x/gov"
-	"github.com/evdatsion/cosmos-sdk/x/mint"
+	"github.com/evdatsion/cusp-sdk/client"
+	"github.com/evdatsion/cusp-sdk/tests"
+	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/evdatsion/cusp-sdk/x/auth"
+	"github.com/evdatsion/cusp-sdk/x/genaccounts"
+	"github.com/evdatsion/cusp-sdk/x/gov"
+	"github.com/evdatsion/cusp-sdk/x/mint"
 )
 
 func TestCuspCLIKeysAddMultisig(t *testing.T) {

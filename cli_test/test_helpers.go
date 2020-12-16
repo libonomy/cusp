@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/evdatsion/cosmos-sdk/client"
+	"github.com/evdatsion/cusp-sdk/client"
 
 	"github.com/stretchr/testify/require"
 
@@ -18,18 +18,18 @@ import (
 
 	"github.com/evdatsion/cusp/app"
 
-	clientkeys "github.com/evdatsion/cosmos-sdk/client/keys"
-	"github.com/evdatsion/cosmos-sdk/codec"
-	"github.com/evdatsion/cosmos-sdk/crypto/keys"
-	"github.com/evdatsion/cosmos-sdk/server"
-	"github.com/evdatsion/cosmos-sdk/simapp"
-	"github.com/evdatsion/cosmos-sdk/tests"
-	sdk "github.com/evdatsion/cosmos-sdk/types"
-	"github.com/evdatsion/cosmos-sdk/x/auth"
-	"github.com/evdatsion/cosmos-sdk/x/distribution"
-	"github.com/evdatsion/cosmos-sdk/x/gov"
-	"github.com/evdatsion/cosmos-sdk/x/slashing"
-	"github.com/evdatsion/cosmos-sdk/x/staking"
+	clientkeys "github.com/evdatsion/cusp-sdk/client/keys"
+	"github.com/evdatsion/cusp-sdk/codec"
+	"github.com/evdatsion/cusp-sdk/crypto/keys"
+	"github.com/evdatsion/cusp-sdk/server"
+	"github.com/evdatsion/cusp-sdk/simapp"
+	"github.com/evdatsion/cusp-sdk/tests"
+	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/evdatsion/cusp-sdk/x/auth"
+	"github.com/evdatsion/cusp-sdk/x/distribution"
+	"github.com/evdatsion/cusp-sdk/x/gov"
+	"github.com/evdatsion/cusp-sdk/x/slashing"
+	"github.com/evdatsion/cusp-sdk/x/staking"
 )
 
 const (

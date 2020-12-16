@@ -4,11 +4,11 @@ executors:
   golang:
     docker:
       - image: circleci/golang:1.13
-    working_directory: /go/src/github.com/evdatsion/cosmos-sdk
+    working_directory: /go/src/github.com/evdatsion/cusp-sdk
   mac:
     macos:
       xcode: "10.3.0"
-    working_directory: /Users/distiller/project/src/github.com/evdatsion/cosmos-sdk
+    working_directory: /Users/distiller/project/src/github.com/evdatsion/cusp-sdk
     environment:
       GO_VERSION: "1.13"
   docs:

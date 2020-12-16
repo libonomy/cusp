@@ -79,12 +79,12 @@ script: |
 
   # Configure LDFLAGS for reproducible builds
   LDFLAGS="-extldflags=-static -buildid=${VERSION} -s -w \
-    -X github.com/evdatsion/cosmos-sdk/version.Name=cusp \
-    -X github.com/evdatsion/cosmos-sdk/version.ServerName=libod \
-    -X github.com/evdatsion/cosmos-sdk/version.ClientName=libocli \
-    -X github.com/evdatsion/cosmos-sdk/version.Version=${VERSION} \
-    -X github.com/evdatsion/cosmos-sdk/version.Commit=${COMMIT} \
-    -X github.com/evdatsion/cosmos-sdk/version.BuildTags=netgo,ledger"
+    -X github.com/evdatsion/cusp-sdk/version.Name=cusp \
+    -X github.com/evdatsion/cusp-sdk/version.ServerName=libod \
+    -X github.com/evdatsion/cusp-sdk/version.ClientName=libocli \
+    -X github.com/evdatsion/cusp-sdk/version.Version=${VERSION} \
+    -X github.com/evdatsion/cusp-sdk/version.Commit=${COMMIT} \
+    -X github.com/evdatsion/cusp-sdk/version.BuildTags=netgo,ledger"
 
   # Extract release tarball and build
   for arch in ${ARCHS}; do

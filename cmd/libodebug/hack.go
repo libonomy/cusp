@@ -7,9 +7,9 @@ import (
 	"os"
 	"path"
 
-	"github.com/evdatsion/cosmos-sdk/store"
+	"github.com/evdatsion/cusp-sdk/store"
 
-	"github.com/evdatsion/cosmos-sdk/baseapp"
+	"github.com/evdatsion/cusp-sdk/baseapp"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -18,7 +18,7 @@ import (
 
 	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
 
-	sdk "github.com/evdatsion/cosmos-sdk/types"
+	sdk "github.com/evdatsion/cusp-sdk/types"
 
 	cusp "github.com/evdatsion/cusp/app"
 )

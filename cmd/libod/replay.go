@@ -19,10 +19,10 @@ import (
 
 	"github.com/evdatsion/cusp/app"
 
-	"github.com/evdatsion/cosmos-sdk/baseapp"
-	"github.com/evdatsion/cosmos-sdk/server"
-	"github.com/evdatsion/cosmos-sdk/store"
-	sdk "github.com/evdatsion/cosmos-sdk/types"
+	"github.com/evdatsion/cusp-sdk/baseapp"
+	"github.com/evdatsion/cusp-sdk/server"
+	"github.com/evdatsion/cusp-sdk/store"
+	sdk "github.com/evdatsion/cusp-sdk/types"
 )
 
 func replayCmd() *cobra.Command {
