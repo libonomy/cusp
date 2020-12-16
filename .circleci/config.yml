@@ -188,7 +188,7 @@ jobs:
           command: |
             excludelist="$(find . -type f -name '*.go' | xargs grep -l 'DONTCOVER')"
             for filename in ${excludelist}; do
-              filename=$(echo $filename | sed 's/^./github.com\/cosmos\/cusp/g')
+              filename=$(echo $filename | sed 's/^./github.com\/libonomy\/cusp/g')
               echo "Excluding ${filename} from coverage report..."
               sed -i.bak "/$(echo $filename | sed 's/\//\\\//g')/d" coverage.txt
             done
@@ -351,7 +351,7 @@ jobs:
 #      - setup_remote_docker:
 #          docker_layer_caching: true
 #      - run:
-#          name: Get Node.js and test REST implementation against swagger documentation at  https://cosmos.network/rpc/
+#          name: Get Node.js and test REST implementation against swagger documentation at  https://github.com/libonomy
 #          command: |
 #            go get github.com/snikch/goodman/cmd/goodman
 #            make build

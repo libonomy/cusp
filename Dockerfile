@@ -13,7 +13,7 @@ WORKDIR /go/src/github.com/evdatsion/cusp
 # Add source files
 COPY . .
 
-# Install minimum necessary dependencies, build Cosmos SDK, remove packages
+# Install minimum necessary dependencies, build cusp SDK, remove packages
 RUN apk add --no-cache $PACKAGES && \
     make tools && \
     make install

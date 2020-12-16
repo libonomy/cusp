@@ -750,7 +750,7 @@ func queryEvents(events []string) (out string) {
 
 // Write the given string to a new temporary file
 func WriteToNewTempFile(t *testing.T, s string) *os.File {
-	fp, err := ioutil.TempFile(os.TempDir(), "cosmos_cli_test_")
+	fp, err := ioutil.TempFile(os.TempDir(), "libonomy_cli_test_")
 	require.Nil(t, err)
 	_, err = fp.WriteString(s)
 	require.Nil(t, err)
