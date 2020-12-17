@@ -12,24 +12,24 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	tmconfig "github.com/evdatsion/aphelion-staking/config"
-	"github.com/evdatsion/aphelion-staking/crypto"
-	cmn "github.com/evdatsion/aphelion-staking/libs/common"
-	"github.com/evdatsion/aphelion-staking/types"
-	tmtime "github.com/evdatsion/aphelion-staking/types/time"
+	tmconfig "github.com/libonomy/aphelion-staking/config"
+	"github.com/libonomy/aphelion-staking/crypto"
+	cmn "github.com/libonomy/aphelion-staking/libs/common"
+	"github.com/libonomy/aphelion-staking/types"
+	tmtime "github.com/libonomy/aphelion-staking/types/time"
 
-	"github.com/evdatsion/cusp-sdk/client"
-	"github.com/evdatsion/cusp-sdk/client/keys"
-	"github.com/evdatsion/cusp-sdk/codec"
-	"github.com/evdatsion/cusp-sdk/server"
-	srvconfig "github.com/evdatsion/cusp-sdk/server/config"
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/types/module"
-	"github.com/evdatsion/cusp-sdk/x/auth"
-	"github.com/evdatsion/cusp-sdk/x/genaccounts"
-	"github.com/evdatsion/cusp-sdk/x/genutil"
-	genutiltypes "github.com/evdatsion/cusp-sdk/x/genutil/types"
-	"github.com/evdatsion/cusp-sdk/x/staking"
+	"github.com/libonomy/cusp-sdk/client"
+	"github.com/libonomy/cusp-sdk/client/keys"
+	"github.com/libonomy/cusp-sdk/codec"
+	"github.com/libonomy/cusp-sdk/server"
+	srvconfig "github.com/libonomy/cusp-sdk/server/config"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/types/module"
+	"github.com/libonomy/cusp-sdk/x/auth"
+	"github.com/libonomy/cusp-sdk/x/genaccounts"
+	"github.com/libonomy/cusp-sdk/x/genutil"
+	genutiltypes "github.com/libonomy/cusp-sdk/x/genutil/types"
+	"github.com/libonomy/cusp-sdk/x/staking"
 )
 
 var (
@@ -236,7 +236,7 @@ func InitTestnet(cmd *cobra.Command, config *tmconfig.Config, cdc *codec.Codec,
 		}
 
 		// TODO: Rename config file to server.toml as it's not particular to Cusp
-		// (REF: https://github.com/evdatsion/cusp-sdk/issues/4125).
+		// (REF: https://github.com/libonomy/cusp-sdk/issues/4125).
 		cuspConfigFilePath := filepath.Join(nodeDir, "config/cuspd.toml")
 		srvconfig.WriteConfigFile(cuspConfigFilePath, cuspConfig)
 	}

@@ -4,11 +4,11 @@ executors:
   golang:
     docker:
       - image: circleci/golang:1.13
-    working_directory: /go/src/github.com/evdatsion/cusp-sdk
+    working_directory: /go/src/github.com/libonomy/cusp-sdk
   mac:
     macos:
       xcode: "10.3.0"
-    working_directory: /Users/distiller/project/src/github.com/evdatsion/cusp-sdk
+    working_directory: /Users/distiller/project/src/github.com/libonomy/cusp-sdk
     environment:
       GO_VERSION: "1.13"
   docs:
@@ -197,7 +197,7 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash) -f coverage.txt
 
   localnet:
-    working_directory: /home/circleci/.go_workspace/src/github.com/evdatsion/cusp
+    working_directory: /home/circleci/.go_workspace/src/github.com/libonomy/cusp
     machine:
       image: circleci/classic:latest
     environment:

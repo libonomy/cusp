@@ -10,19 +10,19 @@ import (
 	cpm "github.com/otiai10/copy"
 	"github.com/spf13/cobra"
 
-	abci "github.com/evdatsion/aphelion-staking/abci/types"
-	cmn "github.com/evdatsion/aphelion-staking/libs/common"
-	"github.com/evdatsion/aphelion-staking/proxy"
-	tmsm "github.com/evdatsion/aphelion-staking/state"
-	tmstore "github.com/evdatsion/aphelion-staking/store"
-	tm "github.com/evdatsion/aphelion-staking/types"
+	abci "github.com/libonomy/aphelion-staking/abci/types"
+	cmn "github.com/libonomy/aphelion-staking/libs/common"
+	"github.com/libonomy/aphelion-staking/proxy"
+	tmsm "github.com/libonomy/aphelion-staking/state"
+	tmstore "github.com/libonomy/aphelion-staking/store"
+	tm "github.com/libonomy/aphelion-staking/types"
 
 	"github.com/libonomy/cusp/app"
 
-	"github.com/evdatsion/cusp-sdk/baseapp"
-	"github.com/evdatsion/cusp-sdk/server"
-	"github.com/evdatsion/cusp-sdk/store"
-	sdk "github.com/evdatsion/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/baseapp"
+	"github.com/libonomy/cusp-sdk/server"
+	"github.com/libonomy/cusp-sdk/store"
+	sdk "github.com/libonomy/cusp-sdk/types"
 )
 
 func replayCmd() *cobra.Command {

@@ -14,20 +14,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
-	tmtypes "github.com/evdatsion/aphelion-staking/types"
+	"github.com/libonomy/aphelion-staking/crypto/ed25519"
+	tmtypes "github.com/libonomy/aphelion-staking/types"
 
 	"github.com/stretchr/testify/require"
 
 	"github.com/libonomy/cusp/app"
 
-	"github.com/evdatsion/cusp-sdk/client"
-	"github.com/evdatsion/cusp-sdk/tests"
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/auth"
-	"github.com/evdatsion/cusp-sdk/x/genaccounts"
-	"github.com/evdatsion/cusp-sdk/x/gov"
-	"github.com/evdatsion/cusp-sdk/x/mint"
+	"github.com/libonomy/cusp-sdk/client"
+	"github.com/libonomy/cusp-sdk/tests"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/auth"
+	"github.com/libonomy/cusp-sdk/x/genaccounts"
+	"github.com/libonomy/cusp-sdk/x/gov"
+	"github.com/libonomy/cusp-sdk/x/mint"
 )
 
 func TestCuspCLIKeysAddMultisig(t *testing.T) {

@@ -10,26 +10,26 @@ import (
 	"testing"
 	"time"
 
-	"github.com/evdatsion/cusp-sdk/client"
+	"github.com/libonomy/cusp-sdk/client"
 
 	"github.com/stretchr/testify/require"
 
-	tmtypes "github.com/evdatsion/aphelion-staking/types"
+	tmtypes "github.com/libonomy/aphelion-staking/types"
 
 	"github.com/libonomy/cusp/app"
 
-	clientkeys "github.com/evdatsion/cusp-sdk/client/keys"
-	"github.com/evdatsion/cusp-sdk/codec"
-	"github.com/evdatsion/cusp-sdk/crypto/keys"
-	"github.com/evdatsion/cusp-sdk/server"
-	"github.com/evdatsion/cusp-sdk/simapp"
-	"github.com/evdatsion/cusp-sdk/tests"
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/auth"
-	"github.com/evdatsion/cusp-sdk/x/distribution"
-	"github.com/evdatsion/cusp-sdk/x/gov"
-	"github.com/evdatsion/cusp-sdk/x/slashing"
-	"github.com/evdatsion/cusp-sdk/x/staking"
+	clientkeys "github.com/libonomy/cusp-sdk/client/keys"
+	"github.com/libonomy/cusp-sdk/codec"
+	"github.com/libonomy/cusp-sdk/crypto/keys"
+	"github.com/libonomy/cusp-sdk/server"
+	"github.com/libonomy/cusp-sdk/simapp"
+	"github.com/libonomy/cusp-sdk/tests"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/auth"
+	"github.com/libonomy/cusp-sdk/x/distribution"
+	"github.com/libonomy/cusp-sdk/x/gov"
+	"github.com/libonomy/cusp-sdk/x/slashing"
+	"github.com/libonomy/cusp-sdk/x/staking"
 )
 
 const (

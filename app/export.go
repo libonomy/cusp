@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"log"
 
-	abci "github.com/evdatsion/aphelion-staking/abci/types"
-	tmtypes "github.com/evdatsion/aphelion-staking/types"
+	abci "github.com/libonomy/aphelion-staking/abci/types"
+	tmtypes "github.com/libonomy/aphelion-staking/types"
 
-	"github.com/evdatsion/cusp-sdk/codec"
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/slashing"
-	"github.com/evdatsion/cusp-sdk/x/staking"
+	"github.com/libonomy/cusp-sdk/codec"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/slashing"
+	"github.com/libonomy/cusp-sdk/x/staking"
 )
 
 // export the state of cusp for a genesis file

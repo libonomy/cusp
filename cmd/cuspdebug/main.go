@@ -11,13 +11,13 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/evdatsion/aphelion-staking/crypto"
-	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
+	"github.com/libonomy/aphelion-staking/crypto"
+	"github.com/libonomy/aphelion-staking/crypto/ed25519"
 
 	cusp "github.com/libonomy/cusp/app"
 
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/auth"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/auth"
 )
 
 func init() {

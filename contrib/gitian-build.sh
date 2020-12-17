@@ -18,7 +18,7 @@ DEFAULT_SIGN_COMMAND='gpg --detach-sign'
 DEFAULT_CUSP_SIGS=${CUSP_SIGS:-'cusp.sigs'}
 DEFAULT_GITIAN_REPO='https://github.com/devrandom/gitian-builder'
 DEFAULT_GBUILD_FLAGS=''
-DEFAULT_SIGS_REPO='https://github.com/evdatsion/cusp.sigs'
+DEFAULT_SIGS_REPO='https://github.com/libonomy/cusp.sigs'
 
 # Overrides
 

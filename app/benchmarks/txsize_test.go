@@ -3,13 +3,13 @@ package app
 import (
 	"fmt"
 
-	"github.com/evdatsion/aphelion-staking/crypto/secp256k1"
+	"github.com/libonomy/aphelion-staking/crypto/secp256k1"
 
 	"github.com/libonomy/cusp/app"
 
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/auth"
-	"github.com/evdatsion/cusp-sdk/x/bank"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/auth"
+	"github.com/libonomy/cusp-sdk/x/bank"
 )
 
 // This will fail half the time with the second output being 173

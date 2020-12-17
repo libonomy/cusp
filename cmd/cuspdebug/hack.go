@@ -7,18 +7,18 @@ import (
 	"os"
 	"path"
 
-	"github.com/evdatsion/cusp-sdk/store"
+	"github.com/libonomy/cusp-sdk/store"
 
-	"github.com/evdatsion/cusp-sdk/baseapp"
+	"github.com/libonomy/cusp-sdk/baseapp"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	abci "github.com/evdatsion/aphelion-staking/abci/types"
-	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
+	abci "github.com/libonomy/aphelion-staking/abci/types"
+	"github.com/libonomy/aphelion-staking/crypto/ed25519"
 
-	"github.com/evdatsion/aphelion-staking/libs/log"
+	"github.com/libonomy/aphelion-staking/libs/log"
 
-	sdk "github.com/evdatsion/cusp-sdk/types"
+	sdk "github.com/libonomy/cusp-sdk/types"
 
 	cusp "github.com/libonomy/cusp/app"
 )

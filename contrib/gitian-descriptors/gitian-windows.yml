@@ -20,7 +20,7 @@ packages:
 - "xxd"
 - "quilt"
 remotes:
-- "url": "https://github.com/evdatsion/cusp.git"
+- "url": "https://github.com/libonomy/cusp.git"
   "dir": "cusp"
 files:
 - "golang-debian-1.12.5-1.tar.gz"
@@ -70,7 +70,7 @@ script: |
   popd
 
   # Prepare GOPATH and install deps
-  distsrc=${GOPATH}/src/github.com/evdatsion/cusp
+  distsrc=${GOPATH}/src/github.com/libonomy/cusp
   mkdir -p ${distsrc}
   pushd ${distsrc}
   tar --strip-components=1 -xf $SOURCEDIST
@@ -79,12 +79,12 @@ script: |
 
   # Configure LDFLAGS for reproducible builds
   LDFLAGS="-extldflags=-static -buildid=${VERSION} -s -w \
-    -X github.com/evdatsion/cusp-sdk/version.Name=cusp \
-    -X github.com/evdatsion/cusp-sdk/version.ServerName=cuspd \
-    -X github.com/evdatsion/cusp-sdk/version.ClientName=cuspcli \
-    -X github.com/evdatsion/cusp-sdk/version.Version=${VERSION} \
-    -X github.com/evdatsion/cusp-sdk/version.Commit=${COMMIT} \
-    -X github.com/evdatsion/cusp-sdk/version.BuildTags=netgo,ledger"
+    -X github.com/libonomy/cusp-sdk/version.Name=cusp \
+    -X github.com/libonomy/cusp-sdk/version.ServerName=cuspd \
+    -X github.com/libonomy/cusp-sdk/version.ClientName=cuspcli \
+    -X github.com/libonomy/cusp-sdk/version.Version=${VERSION} \
+    -X github.com/libonomy/cusp-sdk/version.Commit=${COMMIT} \
+    -X github.com/libonomy/cusp-sdk/version.BuildTags=netgo,ledger"
 
   # Extract release tarball and build
   for arch in ${ARCHS}; do

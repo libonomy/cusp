@@ -7,23 +7,23 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	abci "github.com/evdatsion/aphelion-staking/abci/types"
-	"github.com/evdatsion/aphelion-staking/libs/cli"
-	"github.com/evdatsion/aphelion-staking/libs/log"
-	tmtypes "github.com/evdatsion/aphelion-staking/types"
+	abci "github.com/libonomy/aphelion-staking/abci/types"
+	"github.com/libonomy/aphelion-staking/libs/cli"
+	"github.com/libonomy/aphelion-staking/libs/log"
+	tmtypes "github.com/libonomy/aphelion-staking/types"
 	dbm "github.com/evdatsion/tm-db"
 
 	"github.com/libonomy/cusp/app"
 
-	"github.com/evdatsion/cusp-sdk/baseapp"
-	"github.com/evdatsion/cusp-sdk/client"
-	"github.com/evdatsion/cusp-sdk/server"
-	"github.com/evdatsion/cusp-sdk/store"
-	sdk "github.com/evdatsion/cusp-sdk/types"
-	"github.com/evdatsion/cusp-sdk/x/genaccounts"
-	genaccscli "github.com/evdatsion/cusp-sdk/x/genaccounts/client/cli"
-	genutilcli "github.com/evdatsion/cusp-sdk/x/genutil/client/cli"
-	"github.com/evdatsion/cusp-sdk/x/staking"
+	"github.com/libonomy/cusp-sdk/baseapp"
+	"github.com/libonomy/cusp-sdk/client"
+	"github.com/libonomy/cusp-sdk/server"
+	"github.com/libonomy/cusp-sdk/store"
+	sdk "github.com/libonomy/cusp-sdk/types"
+	"github.com/libonomy/cusp-sdk/x/genaccounts"
+	genaccscli "github.com/libonomy/cusp-sdk/x/genaccounts/client/cli"
+	genutilcli "github.com/libonomy/cusp-sdk/x/genutil/client/cli"
+	"github.com/libonomy/cusp-sdk/x/staking"
 )
 
 // cuspd custom flags

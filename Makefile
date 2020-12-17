@@ -4,7 +4,7 @@ PACKAGES_SIMTEST=$(shell go list ./... | grep '/simulation')
 VERSION := $(shell echo $(shell git describe --tags) | sed 's/^v//')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
-SDK_PACK := $(shell go list -m github.com/evdatsion/cusp-sdk | sed  's/ /\@/g')
+SDK_PACK := $(shell go list -m github.com/libonomy/cusp-sdk | sed  's/ /\@/g')
 
 export GO111MODULE = on
 
@@ -22,7 +22,7 @@ ifeq ($(LEDGER_ENABLED),true)
   else
     UNAME_S = $(shell uname -s)
     ifeq ($(UNAME_S),OpenBSD)
-      $(warning OpenBSD detected, disabling ledger support (https://github.com/evdatsion/cusp-sdk/issues/1988))
+      $(warning OpenBSD detected, disabling ledger support (https://github.com/libonomy/cusp-sdk/issues/1988))
     else
       GCC = $(shell command -v gcc 2> /dev/null)
       ifeq ($(GCC),)
@@ -47,15 +47,15 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/evdatsion/cusp-sdk/version.Name=cusp \
-		  -X github.com/evdatsion/cusp-sdk/version.ServerName=cuspd \
-		  -X github.com/evdatsion/cusp-sdk/version.ClientName=cuspcli \
-		  -X github.com/evdatsion/cusp-sdk/version.Version=$(VERSION) \
-		  -X github.com/evdatsion/cusp-sdk/version.Commit=$(COMMIT) \
-		  -X "github.com/evdatsion/cusp-sdk/version.BuildTags=$(build_tags_comma_sep)"
+ldflags = -X github.com/libonomy/cusp-sdk/version.Name=cusp \
+		  -X github.com/libonomy/cusp-sdk/version.ServerName=cuspd \
+		  -X github.com/libonomy/cusp-sdk/version.ClientName=cuspcli \
+		  -X github.com/libonomy/cusp-sdk/version.Version=$(VERSION) \
+		  -X github.com/libonomy/cusp-sdk/version.Commit=$(COMMIT) \
+		  -X "github.com/libonomy/cusp-sdk/version.BuildTags=$(build_tags_comma_sep)"
 
 ifeq ($(WITH_CLEVELDB),yes)
-  ldflags += -X github.com/evdatsion/cusp-sdk/types.DBBackend=cleveldb
+  ldflags += -X github.com/libonomy/cusp-sdk/types.DBBackend=cleveldb
 endif
 ldflags += $(LDFLAGS)
 ldflags := $(strip $(ldflags))
