@@ -1,58 +1,58 @@
 version: '3'
 
 services:
-  libodnode0:
-    container_name: libodnode0
-    image: "tendermint/libodnode"
+  cuspdnode0:
+    container_name: cuspdnode0
+    image: "aphelion/cuspdnode"
     ports:
       - "26656-26657:26656-26657"
     environment:
       - ID=0
-      - LOG=${LOG:-libod.log}
+      - LOG=${LOG:-cuspd.log}
     volumes:
-      - ./build:/libod:Z
+      - ./build:/cuspd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.2
 
-  libodnode1:
-    container_name: libodnode1
-    image: "tendermint/libodnode"
+  cuspdnode1:
+    container_name: cuspdnode1
+    image: "aphelion/cuspdnode"
     ports:
       - "26659-26660:26656-26657"
     environment:
       - ID=1
-      - LOG=${LOG:-libod.log}
+      - LOG=${LOG:-cuspd.log}
     volumes:
-      - ./build:/libod:Z
+      - ./build:/cuspd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.3
 
-  libodnode2:
-    container_name: libodnode2
-    image: "tendermint/libodnode"
+  cuspdnode2:
+    container_name: cuspdnode2
+    image: "aphelion/cuspdnode"
     environment:
       - ID=2
-      - LOG=${LOG:-libod.log}
+      - LOG=${LOG:-cuspd.log}
     ports:
       - "26661-26662:26656-26657"
     volumes:
-      - ./build:/libod:Z
+      - ./build:/cuspd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.4
 
-  libodnode3:
-    container_name: libodnode3
-    image: "tendermint/libodnode"
+  cuspdnode3:
+    container_name: cuspdnode3
+    image: "aphelion/cuspdnode"
     environment:
       - ID=3
-      - LOG=${LOG:-libod.log}
+      - LOG=${LOG:-cuspd.log}
     ports:
       - "26663-26664:26656-26657"
     volumes:
-      - ./build:/libod:Z
+      - ./build:/cuspd:Z
     networks:
       localnet:
         ipv4_address: 192.168.10.5

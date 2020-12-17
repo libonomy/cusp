@@ -10,12 +10,12 @@ import (
 	cpm "github.com/otiai10/copy"
 	"github.com/spf13/cobra"
 
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
-	cmn "github.com/evdatsion/aphelion-dpos-bft/libs/common"
-	"github.com/evdatsion/aphelion-dpos-bft/proxy"
-	tmsm "github.com/evdatsion/aphelion-dpos-bft/state"
-	tmstore "github.com/evdatsion/aphelion-dpos-bft/store"
-	tm "github.com/evdatsion/aphelion-dpos-bft/types"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
+	cmn "github.com/evdatsion/aphelion-staking/libs/common"
+	"github.com/evdatsion/aphelion-staking/proxy"
+	tmsm "github.com/evdatsion/aphelion-staking/state"
+	tmstore "github.com/evdatsion/aphelion-staking/store"
+	tm "github.com/evdatsion/aphelion-staking/types"
 
 	"github.com/libonomy/cusp/app"
 
@@ -65,7 +65,7 @@ func replayTxs(rootDir string) error {
 
 	// TM DB
 	// tmDB := dbm.NewMemDB()
-	fmt.Fprintln(os.Stderr, "Opening tendermint state database")
+	fmt.Fprintln(os.Stderr, "Opening aphelion state database")
 	tmDB, err := sdk.NewLevelDB("state", dataDir)
 	if err != nil {
 		return err

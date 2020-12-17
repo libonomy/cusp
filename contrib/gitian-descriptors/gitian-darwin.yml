@@ -80,8 +80,8 @@ script: |
   # Configure LDFLAGS for reproducible builds
   LDFLAGS="-extldflags=-static -buildid=${VERSION} -s -w \
     -X github.com/evdatsion/cusp-sdk/version.Name=cusp \
-    -X github.com/evdatsion/cusp-sdk/version.ServerName=libod \
-    -X github.com/evdatsion/cusp-sdk/version.ClientName=libocli \
+    -X github.com/evdatsion/cusp-sdk/version.ServerName=cuspd \
+    -X github.com/evdatsion/cusp-sdk/version.ClientName=cuspcli \
     -X github.com/evdatsion/cusp-sdk/version.Version=${VERSION} \
     -X github.com/evdatsion/cusp-sdk/version.Commit=${COMMIT} \
     -X github.com/evdatsion/cusp-sdk/version.BuildTags=netgo,ledger"
@@ -93,7 +93,7 @@ script: |
 
     # Build cusp tool suite
     pushd ${distsrc}
-    for prog in libocli libod; do
+    for prog in cuspcli cuspd; do
       GOARCH=${arch} GOROOT_FINAL=${GOROOT} go build -a \
         -gcflags=all=-trimpath=${GOPATH} \
         -asmflags=all=-trimpath=${GOPATH} \

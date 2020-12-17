@@ -48,8 +48,8 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 # process linker flags
 
 ldflags = -X github.com/evdatsion/cusp-sdk/version.Name=cusp \
-		  -X github.com/evdatsion/cusp-sdk/version.ServerName=libod \
-		  -X github.com/evdatsion/cusp-sdk/version.ClientName=libocli \
+		  -X github.com/evdatsion/cusp-sdk/version.ServerName=cuspd \
+		  -X github.com/evdatsion/cusp-sdk/version.ClientName=cuspcli \
 		  -X github.com/evdatsion/cusp-sdk/version.Version=$(VERSION) \
 		  -X github.com/evdatsion/cusp-sdk/version.Commit=$(COMMIT) \
 		  -X "github.com/evdatsion/cusp-sdk/version.BuildTags=$(build_tags_comma_sep)"
@@ -69,22 +69,22 @@ all: install lint check
 
 build: go.sum
 ifeq ($(OS),Windows_NT)
-	go build -mod=readonly $(BUILD_FLAGS) -o build/libod.exe ./cmd/libod
-	go build -mod=readonly $(BUILD_FLAGS) -o build/libocli.exe ./cmd/libocli
+	go build -mod=readonly $(BUILD_FLAGS) -o build/cuspd.exe ./cmd/cuspd
+	go build -mod=readonly $(BUILD_FLAGS) -o build/cuspcli.exe ./cmd/cuspcli
 else
-	go build -mod=readonly $(BUILD_FLAGS) -o build/libod ./cmd/libod
-	go build -mod=readonly $(BUILD_FLAGS) -o build/libocli ./cmd/libocli
+	go build -mod=readonly $(BUILD_FLAGS) -o build/cuspd ./cmd/cuspd
+	go build -mod=readonly $(BUILD_FLAGS) -o build/cuspcli ./cmd/cuspcli
 endif
 
 build-linux: go.sum
 	LEDGER_ENABLED=false GOOS=linux GOARCH=amd64 $(MAKE) build
 
 install: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libod
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libocli
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/cuspd
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/cuspcli
 
 install-debug: go.sum
-	go install -mod=readonly $(BUILD_FLAGS) ./cmd/libodebug
+	go install -mod=readonly $(BUILD_FLAGS) ./cmd/cuspdebug
 
 ########################################
 ### Tools & dependencies
@@ -100,7 +100,7 @@ go.sum: go.mod
 draw-deps:
 	@# requires brew install graphviz or apt-get install graphviz
 	go get github.com/RobotsAndPencils/goviz
-	@goviz -i ./cmd/libod -d 2 | dot -Tpng -o dependency-graph.png
+	@goviz -i ./cmd/cuspd -d 2 | dot -Tpng -o dependency-graph.png
 
 clean:
 	rm -rf snapcraft-local.yaml build/

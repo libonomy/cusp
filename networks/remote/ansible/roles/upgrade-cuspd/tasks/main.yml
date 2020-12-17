@@ -3,27 +3,27 @@
 - name: Copy binary
   copy:
     src: "{{BINARY}}"
-    dest: /usr/bin/libod
+    dest: /usr/bin/cuspd
     mode: 0755
-  notify: restart libod
+  notify: restart cuspd
 
 - name: Copy new genesis.json file, if available
   when: "GENESISFILE is defined and GENESISFILE != ''" 
   copy:
     src: "{{GENESISFILE}}"
-    dest: /home/libod/.libod/config/genesis.json
-  notify: restart libod
+    dest: /home/cuspd/.cuspd/config/genesis.json
+  notify: restart cuspd
 
 - name: Download genesis.json URL, if available
   when: "GENESISURL is defined and GENESISURL != ''"
   get_url:
     url: "{{GENESISURL}}"
-    dest: /home/libod/.libod/config/genesis.json
+    dest: /home/cuspd/.cuspd/config/genesis.json
     force: yes
-  notify: restart libod
+  notify: restart cuspd
 
 - name: Reset network
   when: UNSAFE_RESET_ALL | default(false) | bool
-  command: "sudo -u libod libod unsafe-reset-all"
-  notify: restart libod
+  command: "sudo -u cuspd cuspd unsafe-reset-all"
+  notify: restart cuspd
 

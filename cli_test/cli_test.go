@@ -14,8 +14,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
-	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
+	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
+	tmtypes "github.com/evdatsion/aphelion-staking/types"
 
 	"github.com/stretchr/testify/require"
 
@@ -92,7 +92,7 @@ func TestCuspCLIMinimumFees(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	minGasPrice, _ := sdk.NewDecFromStr("0.000006")
 	fees := fmt.Sprintf(
 		"--minimum-gas-prices=%s,%s",
@@ -130,7 +130,7 @@ func TestCuspCLIGasPrices(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	minGasPrice, _ := sdk.NewDecFromStr("0.000006")
 	proc := f.GDStart(fmt.Sprintf("--minimum-gas-prices=%s", sdk.NewDecCoinFromDec(feeDenom, minGasPrice)))
 	defer proc.Stop(false)
@@ -164,7 +164,7 @@ func TestCuspCLIFeesDeduction(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	minGasPrice, _ := sdk.NewDecFromStr("0.000006")
 	proc := f.GDStart(fmt.Sprintf("--minimum-gas-prices=%s", sdk.NewDecCoinFromDec(feeDenom, minGasPrice)))
 	defer proc.Stop(false)
@@ -217,7 +217,7 @@ func TestCuspCLISend(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -286,7 +286,7 @@ func TestCuspCLIGasAuto(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -346,7 +346,7 @@ func TestCuspCLICreateValidator(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -437,7 +437,7 @@ func TestCuspCLIQueryRewards(t *testing.T) {
 	genDoc.AppState, err = cdc.MarshalJSON(genesisState)
 	require.NoError(t, genDoc.SaveAs(genFile))
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -452,7 +452,7 @@ func TestCuspCLIQuerySupply(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -469,7 +469,7 @@ func TestCuspCLISubmitProposal(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -761,7 +761,7 @@ func TestCuspCLIQueryTxPagination(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -811,7 +811,7 @@ func TestCuspCLIValidateSignatures(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -861,7 +861,7 @@ func TestCuspCLISendGenerateSignAndBroadcast(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -945,7 +945,7 @@ func TestCuspCLIMultisignInsufficientCosigners(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -998,7 +998,7 @@ func TestCuspCLIEncode(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -1036,7 +1036,7 @@ func TestCuspCLIMultisignSortSignatures(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -1101,7 +1101,7 @@ func TestCuspCLIMultisign(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server with minimum fees
+	// start cuspd server with minimum fees
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -1287,7 +1287,7 @@ func TestSlashingGetParams(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 
@@ -1296,7 +1296,7 @@ func TestSlashingGetParams(t *testing.T) {
 	require.Equal(t, int64(100), params.SignedBlocksWindow)
 	require.Equal(t, sdk.NewDecWithPrec(5, 1), params.MinSignedPerWindow)
 
-	sinfo := f.QuerySigningInfo(f.GDTendermint("show-validator"))
+	sinfo := f.QuerySigningInfo(f.GDLibonomy("show-validator"))
 	require.Equal(t, int64(0), sinfo.StartHeight)
 	require.False(t, sinfo.Tombstoned)
 
@@ -1308,7 +1308,7 @@ func TestValidateGenesis(t *testing.T) {
 	t.Parallel()
 	f := InitFixtures(t)
 
-	// start libod server
+	// start cuspd server
 	proc := f.GDStart()
 	defer proc.Stop(false)
 

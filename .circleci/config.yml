@@ -13,7 +13,7 @@ executors:
       GO_VERSION: "1.13"
   docs:
     docker:
-      - image: tendermintdev/jq_curl
+      - image: apheliondev/jq_curl
     environment:
       AWS_REGION: us-east-1
 
@@ -285,20 +285,20 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: |
-          LIBOD_VERSION=''
+          CUSPD_VERSION=''
           if [ "${CIRCLE_BRANCH}" = "master" ]; then
-            LIBOD_VERSION="stable"
+            CUSPD_VERSION="stable"
           elif [ "${CIRCLE_BRANCH}" = "develop" ]; then
-            LIBOD_VERSION="develop"
+            CUSPD_VERSION="develop"
           elif [[ "${CIRCLE_BRANCH}" == release/v* ]]; then
-            LIBOD_VERSION="${CIRCLE_BRANCH}"
+            CUSPD_VERSION="${CIRCLE_BRANCH}"
           fi
-          if [ -z "${LIBOD_VERSION}" ]; then
+          if [ -z "${CUSPD_VERSION}" ]; then
             docker build .
           else
-            docker build -t tendermint/cusp:$LIBOD_VERSION .
+            docker build -t aphelion/cusp:$CUSPD_VERSION .
             docker login --password-stdin -u $DOCKER_USER \<<<$DOCKER_PASS
-            docker push tendermint/cusp:$LIBOD_VERSION
+            docker push aphelion/cusp:$CUSPD_VERSION
           fi
 
   docker-tagged:
@@ -310,9 +310,9 @@ jobs:
       - setup_remote_docker:
           docker_layer_caching: true
       - run: |
-          docker build -t tendermint/cusp:$CIRCLE_TAG .
+          docker build -t aphelion/cusp:$CIRCLE_TAG .
           docker login --password-stdin -u $DOCKER_USER \<<$DOCKER_PASS
-          docker push tendermint/cusp:$CIRCLE_TAG
+          docker push aphelion/cusp:$CIRCLE_TAG
 
   reproducible-builds:
     executor: golang
@@ -340,7 +340,7 @@ jobs:
           path: /go/src/github.com/libonomy/cusp/cusp-windows-res.yml
 
 # FIXME: The `setup-contract-tests-data` make target is broken as it completely
-# overrides the .libod directory.
+# overrides the .cuspd directory.
 #
 #  contract_tests:
 #    executor: golang

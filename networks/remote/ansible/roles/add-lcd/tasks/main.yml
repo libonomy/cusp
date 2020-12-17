@@ -3,13 +3,13 @@
 - name: Copy binary
   copy:
     src: "{{CUSPCLI_BINARY}}"
-    dest: /usr/bin/libocli
+    dest: /usr/bin/cuspcli
     mode: 0755
-  notify: restart libocli
+  notify: restart cuspcli
 
 - name: Copy service
   template:
-    src: libocli.service.j2
-    dest: /etc/systemd/system/libocli.service
+    src: cuspcli.service.j2
+    dest: /etc/systemd/system/cuspcli.service
   notify: systemctl
 

@@ -7,10 +7,10 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
-	"github.com/evdatsion/aphelion-dpos-bft/libs/cli"
-	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
-	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
+	"github.com/evdatsion/aphelion-staking/libs/cli"
+	"github.com/evdatsion/aphelion-staking/libs/log"
+	tmtypes "github.com/evdatsion/aphelion-staking/types"
 	dbm "github.com/evdatsion/tm-db"
 
 	"github.com/libonomy/cusp/app"
@@ -26,7 +26,7 @@ import (
 	"github.com/evdatsion/cusp-sdk/x/staking"
 )
 
-// libod custom flags
+// cuspd custom flags
 const flagInvCheckPeriod = "inv-check-period"
 
 var invCheckPeriod uint
@@ -43,7 +43,7 @@ func main() {
 	ctx := server.NewDefaultContext()
 	cobra.EnableCommandSorting = false
 	rootCmd := &cobra.Command{
-		Use:               "libod",
+		Use:               "cuspd",
 		Short:             "Cusp Daemon (server)",
 		PersistentPreRunE: server.PersistentPreRunEFn(ctx),
 	}

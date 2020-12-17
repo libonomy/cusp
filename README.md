@@ -17,13 +17,13 @@
 2. Run Make Install command in order to install the required dependencies of the system.
 3. When the installation is successful you will be able to utilize libonomy daemon and CLI commands .
 ```
-> libod is meant to for daemon interface and libocli is meant for command line interfacing, rest/rpc services and others.
+> cuspd is meant to for daemon interface and cuspcli is meant for command line interfacing, rest/rpc services and others.
 
 
 ## Developers Community ?
 - Libonomy [discord community](https://libonomy.com/discord)
 #### Upcoming Release
-- The upcoming release will move the CUSP independent of the relying dependencies such as bitcoin and tendermint.
+- The upcoming release will move the CUSP independent of the relying dependencies such as bitcoin and aphelion.
 - The classification agent module CLI by which blockchain can be interacted with the AI modules and classification agents.
 - Multi Layered Pooling system which will serve as a public interaction channel directly through our standalone CLI .
 ---

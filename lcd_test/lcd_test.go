@@ -66,8 +66,8 @@ func TestValidators(t *testing.T) {
 	require.NoError(t, err)
 	defer cleanup()
 	resultVals := getValidatorSets(t, port, -1, false)
-	require.Contains(t, resultVals.Validators[0].Address.String(), "cosmosvalcons")
-	require.Contains(t, resultVals.Validators[0].PubKey, "cosmosvalconspub")
+	require.Contains(t, resultVals.Validators[0].Address.String(), "libonomyvalcons")
+	require.Contains(t, resultVals.Validators[0].PubKey, "libonomyvalconspub")
 	getValidatorSets(t, port, 2, false)
 	getValidatorSets(t, port, 10000000, true)
 }
@@ -1112,7 +1112,7 @@ func TestAccountBalanceQuery(t *testing.T) {
 	// empty account
 	res, body := Request(t, port, "GET", fmt.Sprintf("/auth/accounts/%s", someFakeAddr), nil)
 	require.Equal(t, http.StatusOK, res.StatusCode, body)
-	require.Contains(t, body, `"type":"cosmos-sdk/Account"`)
+	require.Contains(t, body, `"type":"cusp-sdk/Account"`)
 
 	// empty account balance
 	res, body = Request(t, port, "GET", fmt.Sprintf("/bank/balances/%s", someFakeAddr), nil)

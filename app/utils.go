@@ -4,7 +4,7 @@ package app
 import (
 	"io"
 
-	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
+	"github.com/evdatsion/aphelion-staking/libs/log"
 	dbm "github.com/evdatsion/tm-db"
 
 	"github.com/evdatsion/cusp-sdk/baseapp"

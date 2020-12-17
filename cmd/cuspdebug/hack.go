@@ -13,10 +13,10 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
-	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
+	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
 
-	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
+	"github.com/evdatsion/aphelion-staking/libs/log"
 
 	sdk "github.com/evdatsion/cusp-sdk/types"
 
@@ -29,7 +29,7 @@ func runHackCmd(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("Expected 1 arg")
 	}
 
-	// ".libod"
+	// ".cuspd"
 	dataDir := args[0]
 	dataDir = path.Join(dataDir, "data")
 

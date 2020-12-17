@@ -1,0 +1,5 @@
+---
+
+- name: restart cuspd
+  service: name=cuspd state=restarted
+

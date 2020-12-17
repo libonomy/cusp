@@ -5,13 +5,13 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
+	"github.com/evdatsion/aphelion-staking/libs/log"
 	"github.com/evdatsion/tm-db"
 
 	"github.com/evdatsion/cusp-sdk/codec"
 	"github.com/evdatsion/cusp-sdk/simapp"
 
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
 )
 
 func TestCuspdExport(t *testing.T) {

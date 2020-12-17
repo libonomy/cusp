@@ -1,14 +1,14 @@
 [Unit]
-Description=libocli
+Description=cuspcli
 Requires=network-online.target
 After=network-online.target
 
 [Service]
 Restart=on-failure
-User=libod
-Group=libod
+User=cuspd
+Group=cuspd
 PermissionsStartOnly=true
-ExecStart=/usr/bin/libocli rest-server --laddr {{CUSPCLI_ADDRESS}}
+ExecStart=/usr/bin/cuspcli rest-server --laddr {{CUSPCLI_ADDRESS}}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM
 

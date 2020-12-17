@@ -3,7 +3,7 @@ package app
 import (
 	"fmt"
 
-	"github.com/evdatsion/aphelion-dpos-bft/crypto/secp256k1"
+	"github.com/evdatsion/aphelion-staking/crypto/secp256k1"
 
 	"github.com/libonomy/cusp/app"
 

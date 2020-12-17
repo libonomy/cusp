@@ -1,7 +1,7 @@
 # Simple usage with a mounted data directory:
 # > docker build -t cusp .
-# > docker run -it -p 46657:46657 -p 46656:46656 -v ~/.libod:/root/.libod -v ~/.libocli:/root/.libocli cusp libod init
-# > docker run -it -p 46657:46657 -p 46656:46656 -v ~/.libod:/root/.libod -v ~/.libocli:/root/.libocli cusp libod start
+# > docker run -it -p 46657:46657 -p 46656:46656 -v ~/.cuspd:/root/.cuspd -v ~/.cuspcli:/root/.cuspcli cusp cuspd init
+# > docker run -it -p 46657:46657 -p 46656:46656 -v ~/.cuspd:/root/.cuspd -v ~/.cuspcli:/root/.cuspcli cusp cuspd start
 FROM golang:alpine AS build-env
 
 # Set up dependencies
@@ -26,8 +26,8 @@ RUN apk add --update ca-certificates
 WORKDIR /root
 
 # Copy over binaries from the build-env
-COPY --from=build-env /go/bin/libod /usr/bin/libod
-COPY --from=build-env /go/bin/libocli /usr/bin/libocli
+COPY --from=build-env /go/bin/cuspd /usr/bin/cuspd
+COPY --from=build-env /go/bin/cuspcli /usr/bin/cuspcli
 
-# Run libod by default, omit entrypoint to ease using container with libocli
-CMD ["libod"]
+# Run cuspd by default, omit entrypoint to ease using container with cuspcli
+CMD ["cuspd"]

@@ -33,7 +33,7 @@ import (
 
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/require"
-	ctypes "github.com/evdatsion/aphelion-dpos-bft/rpc/core/types"
+	ctypes "github.com/evdatsion/aphelion-staking/rpc/core/types"
 )
 
 // Request makes a test LCD test request. It returns a response object and a
@@ -60,7 +60,7 @@ func Request(t *testing.T, port, method, path string, payload []byte) (*http.Res
 }
 
 // ----------------------------------------------------------------------
-// ICS 0 - Tendermint
+// ICS 0 - Libonomy
 // ----------------------------------------------------------------------
 // GET /node_info The properties of the connected node
 func getNodeInfo(t *testing.T, port string) rpc.NodeInfoResponse {

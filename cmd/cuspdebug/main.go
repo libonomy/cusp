@@ -11,8 +11,8 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/evdatsion/aphelion-dpos-bft/crypto"
-	"github.com/evdatsion/aphelion-dpos-bft/crypto/ed25519"
+	"github.com/evdatsion/aphelion-staking/crypto"
+	"github.com/evdatsion/aphelion-staking/crypto/ed25519"
 
 	cusp "github.com/libonomy/cusp/app"
 
@@ -36,7 +36,7 @@ func init() {
 }
 
 var rootCmd = &cobra.Command{
-	Use:          "libodebug",
+	Use:          "cuspdebug",
 	Short:        "Cusp debug tool",
 	SilenceUsage: true,
 }

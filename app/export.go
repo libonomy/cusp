@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"log"
 
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
-	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
+	tmtypes "github.com/evdatsion/aphelion-staking/types"
 
 	"github.com/evdatsion/cusp-sdk/codec"
 	sdk "github.com/evdatsion/cusp-sdk/types"

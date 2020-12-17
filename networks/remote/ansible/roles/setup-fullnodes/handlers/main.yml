@@ -1,5 +1,5 @@
 ---
 
 - name: reload systemd
-  systemd: name=libod enabled=yes daemon_reload=yes
+  systemd: name=cuspd enabled=yes daemon_reload=yes
 

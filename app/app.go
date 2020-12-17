@@ -4,9 +4,9 @@ import (
 	"io"
 	"os"
 
-	abci "github.com/evdatsion/aphelion-dpos-bft/abci/types"
-	cmn "github.com/evdatsion/aphelion-dpos-bft/libs/common"
-	"github.com/evdatsion/aphelion-dpos-bft/libs/log"
+	abci "github.com/evdatsion/aphelion-staking/abci/types"
+	cmn "github.com/evdatsion/aphelion-staking/libs/common"
+	"github.com/evdatsion/aphelion-staking/libs/log"
 	dbm "github.com/evdatsion/tm-db"
 
 	bam "github.com/evdatsion/cusp-sdk/baseapp"
@@ -33,11 +33,11 @@ import (
 const appName = "CuspApp"
 
 var (
-	// default home directories for libocli
-	DefaultCLIHome = os.ExpandEnv("$HOME/.libocli")
+	// default home directories for cuspcli
+	DefaultCLIHome = os.ExpandEnv("$HOME/.cuspcli")
 
-	// default home directories for libod
-	DefaultNodeHome = os.ExpandEnv("$HOME/.libod")
+	// default home directories for cuspd
+	DefaultNodeHome = os.ExpandEnv("$HOME/.cuspd")
 
 	// The module BasicManager is in charge of setting up basic,
 	// non-dependant module elements, such as codec registration

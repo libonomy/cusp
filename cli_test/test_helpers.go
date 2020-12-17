@@ -14,7 +14,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	tmtypes "github.com/evdatsion/aphelion-dpos-bft/types"
+	tmtypes "github.com/evdatsion/aphelion-staking/types"
 
 	"github.com/libonomy/cusp/app"
 
@@ -103,10 +103,10 @@ func NewFixtures(t *testing.T) *Fixtures {
 		T:             t,
 		BuildDir:      buildDir,
 		RootDir:       tmpDir,
-		CuspdBinary:   filepath.Join(buildDir, "libod"),
-		CuspcliBinary: filepath.Join(buildDir, "libocli"),
-		CuspdHome:     filepath.Join(tmpDir, ".libod"),
-		CuspcliHome:   filepath.Join(tmpDir, ".libocli"),
+		CuspdBinary:   filepath.Join(buildDir, "cuspd"),
+		CuspcliBinary: filepath.Join(buildDir, "cuspcli"),
+		CuspdHome:     filepath.Join(tmpDir, ".cuspd"),
+		CuspcliHome:   filepath.Join(tmpDir, ".cuspcli"),
 		RPCAddr:       servAddr,
 		P2PAddr:       p2pAddr,
 		Port:          port,
@@ -188,9 +188,9 @@ func (f *Fixtures) Flags() string {
 }
 
 //___________________________________________________________________________________
-// libod
+// cuspd
 
-// UnsafeResetAll is libod unsafe-reset-all
+// UnsafeResetAll is cuspd unsafe-reset-all
 func (f *Fixtures) UnsafeResetAll(flags ...string) {
 	cmd := fmt.Sprintf("%s --home=%s unsafe-reset-all", f.CuspdBinary, f.CuspdHome)
 	executeWrite(f.T, addFlags(cmd, flags))
@@ -198,7 +198,7 @@ func (f *Fixtures) UnsafeResetAll(flags ...string) {
 	require.NoError(f.T, err)
 }
 
-// GDInit is libod init
+// GDInit is cuspd init
 // NOTE: GDInit sets the ChainID for the Fixtures instance
 func (f *Fixtures) GDInit(moniker string, flags ...string) {
 	cmd := fmt.Sprintf("%s init -o --home=%s %s", f.CuspdBinary, f.CuspdHome, moniker)
@@ -216,25 +216,25 @@ func (f *Fixtures) GDInit(moniker string, flags ...string) {
 	f.ChainID = chainID
 }
 
-// AddGenesisAccount is libod add-genesis-account
+// AddGenesisAccount is cuspd add-genesis-account
 func (f *Fixtures) AddGenesisAccount(address sdk.AccAddress, coins sdk.Coins, flags ...string) {
 	cmd := fmt.Sprintf("%s add-genesis-account %s %s --home=%s", f.CuspdBinary, address, coins, f.CuspdHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags))
 }
 
-// GenTx is libod gentx
+// GenTx is cuspd gentx
 func (f *Fixtures) GenTx(name string, flags ...string) {
 	cmd := fmt.Sprintf("%s gentx --name=%s --home=%s --home-client=%s", f.CuspdBinary, name, f.CuspdHome, f.CuspcliHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// CollectGenTxs is libod collect-gentxs
+// CollectGenTxs is cuspd collect-gentxs
 func (f *Fixtures) CollectGenTxs(flags ...string) {
 	cmd := fmt.Sprintf("%s collect-gentxs --home=%s", f.CuspdBinary, f.CuspdHome)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// GDStart runs libod start with the appropriate flags and returns a process
+// GDStart runs cuspd start with the appropriate flags and returns a process
 func (f *Fixtures) GDStart(flags ...string) *tests.Process {
 	cmd := fmt.Sprintf("%s start --home=%s --rpc.laddr=%v --p2p.laddr=%v", f.CuspdBinary, f.CuspdHome, f.RPCAddr, f.P2PAddr)
 	proc := tests.GoExecuteTWithStdout(f.T, addFlags(cmd, flags))
@@ -243,49 +243,49 @@ func (f *Fixtures) GDStart(flags ...string) *tests.Process {
 	return proc
 }
 
-// GDTendermint returns the results of libod tendermint [query]
-func (f *Fixtures) GDTendermint(query string) string {
-	cmd := fmt.Sprintf("%s tendermint %s --home=%s", f.CuspdBinary, query, f.CuspdHome)
+// GDLibonomy returns the results of cuspd aphelion [query]
+func (f *Fixtures) GDLibonomy(query string) string {
+	cmd := fmt.Sprintf("%s aphelion %s --home=%s", f.CuspdBinary, query, f.CuspdHome)
 	success, stdout, stderr := executeWriteRetStdStreams(f.T, cmd)
 	require.Empty(f.T, stderr)
 	require.True(f.T, success)
 	return strings.TrimSpace(stdout)
 }
 
-// ValidateGenesis runs libod validate-genesis
+// ValidateGenesis runs cuspd validate-genesis
 func (f *Fixtures) ValidateGenesis() {
 	cmd := fmt.Sprintf("%s validate-genesis --home=%s", f.CuspdBinary, f.CuspdHome)
 	executeWriteCheckErr(f.T, cmd)
 }
 
 //___________________________________________________________________________________
-// libocli keys
+// cuspcli keys
 
-// KeysDelete is libocli keys delete
+// KeysDelete is cuspcli keys delete
 func (f *Fixtures) KeysDelete(name string, flags ...string) {
 	cmd := fmt.Sprintf("%s keys delete --home=%s %s", f.CuspcliBinary, f.CuspcliHome, name)
 	executeWrite(f.T, addFlags(cmd, append(append(flags, "-y"), "-f")))
 }
 
-// KeysAdd is libocli keys add
+// KeysAdd is cuspcli keys add
 func (f *Fixtures) KeysAdd(name string, flags ...string) {
 	cmd := fmt.Sprintf("%s keys add --home=%s %s", f.CuspcliBinary, f.CuspcliHome, name)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// KeysAddRecover prepares libocli keys add --recover
+// KeysAddRecover prepares cuspcli keys add --recover
 func (f *Fixtures) KeysAddRecover(name, mnemonic string, flags ...string) (exitSuccess bool, stdout, stderr string) {
 	cmd := fmt.Sprintf("%s keys add --home=%s --recover %s", f.CuspcliBinary, f.CuspcliHome, name)
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass, mnemonic)
 }
 
-// KeysAddRecoverHDPath prepares libocli keys add --recover --account --index
+// KeysAddRecoverHDPath prepares cuspcli keys add --recover --account --index
 func (f *Fixtures) KeysAddRecoverHDPath(name, mnemonic string, account uint32, index uint32, flags ...string) {
 	cmd := fmt.Sprintf("%s keys add --home=%s --recover %s --account %d --index %d", f.CuspcliBinary, f.CuspcliHome, name, account, index)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags), client.DefaultKeyPass, mnemonic)
 }
 
-// KeysShow is libocli keys show
+// KeysShow is cuspcli keys show
 func (f *Fixtures) KeysShow(name string, flags ...string) keys.KeyOutput {
 	cmd := fmt.Sprintf("%s keys show --home=%s %s", f.CuspcliBinary, f.CuspcliHome, name)
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -304,42 +304,42 @@ func (f *Fixtures) KeyAddress(name string) sdk.AccAddress {
 }
 
 //___________________________________________________________________________________
-// libocli config
+// cuspcli config
 
-// CLIConfig is libocli config
+// CLIConfig is cuspcli config
 func (f *Fixtures) CLIConfig(key, value string, flags ...string) {
 	cmd := fmt.Sprintf("%s config --home=%s %s %s", f.CuspcliBinary, f.CuspcliHome, key, value)
 	executeWriteCheckErr(f.T, addFlags(cmd, flags))
 }
 
 //___________________________________________________________________________________
-// libocli tx send/sign/broadcast
+// cuspcli tx send/sign/broadcast
 
-// TxSend is libocli tx send
+// TxSend is cuspcli tx send
 func (f *Fixtures) TxSend(from string, to sdk.AccAddress, amount sdk.Coin, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx send %s %s %s %v", f.CuspcliBinary, from, to, amount, f.Flags())
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxSign is libocli tx sign
+// TxSign is cuspcli tx sign
 func (f *Fixtures) TxSign(signer, fileName string, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx sign %v --from=%s %v", f.CuspcliBinary, f.Flags(), signer, fileName)
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxBroadcast is libocli tx broadcast
+// TxBroadcast is cuspcli tx broadcast
 func (f *Fixtures) TxBroadcast(fileName string, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx broadcast %v %v", f.CuspcliBinary, f.Flags(), fileName)
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxEncode is libocli tx encode
+// TxEncode is cuspcli tx encode
 func (f *Fixtures) TxEncode(fileName string, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx encode %v %v", f.CuspcliBinary, f.Flags(), fileName)
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxMultisign is libocli tx multisign
+// TxMultisign is cuspcli tx multisign
 func (f *Fixtures) TxMultisign(fileName, name string, signaturesFiles []string,
 	flags ...string) (bool, string, string) {
 
@@ -350,9 +350,9 @@ func (f *Fixtures) TxMultisign(fileName, name string, signaturesFiles []string,
 }
 
 //___________________________________________________________________________________
-// libocli tx staking
+// cuspcli tx staking
 
-// TxStakingCreateValidator is libocli tx staking create-validator
+// TxStakingCreateValidator is cuspcli tx staking create-validator
 func (f *Fixtures) TxStakingCreateValidator(from, consPubKey string, amount sdk.Coin, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx staking create-validator %v --from=%s --pubkey=%s", f.CuspcliBinary, f.Flags(), from, consPubKey)
 	cmd += fmt.Sprintf(" --amount=%v --moniker=%v --commission-rate=%v", amount, from, "0.05")
@@ -361,29 +361,29 @@ func (f *Fixtures) TxStakingCreateValidator(from, consPubKey string, amount sdk.
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxStakingUnbond is libocli tx staking unbond
+// TxStakingUnbond is cuspcli tx staking unbond
 func (f *Fixtures) TxStakingUnbond(from, shares string, validator sdk.ValAddress, flags ...string) bool {
 	cmd := fmt.Sprintf("%s tx staking unbond %s %v --from=%s %v", f.CuspcliBinary, validator, shares, from, f.Flags())
 	return executeWrite(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
 //___________________________________________________________________________________
-// libocli tx gov
+// cuspcli tx gov
 
-// TxGovSubmitProposal is libocli tx gov submit-proposal
+// TxGovSubmitProposal is cuspcli tx gov submit-proposal
 func (f *Fixtures) TxGovSubmitProposal(from, typ, title, description string, deposit sdk.Coin, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx gov submit-proposal %v --from=%s --type=%s", f.CuspcliBinary, f.Flags(), from, typ)
 	cmd += fmt.Sprintf(" --title=%s --description=%s --deposit=%s", title, description, deposit)
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxGovDeposit is libocli tx gov deposit
+// TxGovDeposit is cuspcli tx gov deposit
 func (f *Fixtures) TxGovDeposit(proposalID int, from string, amount sdk.Coin, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx gov deposit %d %s --from=%s %v", f.CuspcliBinary, proposalID, amount, from, f.Flags())
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
 }
 
-// TxGovVote is libocli tx gov vote
+// TxGovVote is cuspcli tx gov vote
 func (f *Fixtures) TxGovVote(proposalID int, option gov.VoteOption, from string, flags ...string) (bool, string, string) {
 	cmd := fmt.Sprintf("%s tx gov vote %d %s --from=%s %v", f.CuspcliBinary, proposalID, option, from, f.Flags())
 	return executeWriteRetStdStreams(f.T, addFlags(cmd, flags), client.DefaultKeyPass)
@@ -418,9 +418,9 @@ func (f *Fixtures) TxGovSubmitCommunityPoolSpendProposal(
 }
 
 //___________________________________________________________________________________
-// libocli query account
+// cuspcli query account
 
-// QueryAccount is libocli query account
+// QueryAccount is cuspcli query account
 func (f *Fixtures) QueryAccount(address sdk.AccAddress, flags ...string) auth.BaseAccount {
 	cmd := fmt.Sprintf("%s query account %s %v", f.CuspcliBinary, address, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -437,9 +437,9 @@ func (f *Fixtures) QueryAccount(address sdk.AccAddress, flags ...string) auth.Ba
 }
 
 //___________________________________________________________________________________
-// libocli query txs
+// cuspcli query txs
 
-// QueryTxs is libocli query txs
+// QueryTxs is cuspcli query txs
 func (f *Fixtures) QueryTxs(page, limit int, events ...string) *sdk.SearchTxsResult {
 	cmd := fmt.Sprintf("%s query txs --page=%d --limit=%d --events='%s' %v", f.CuspcliBinary, page, limit, queryEvents(events), f.Flags())
 	out, _ := tests.ExecuteT(f.T, cmd, "")
@@ -458,9 +458,9 @@ func (f *Fixtures) QueryTxsInvalid(expectedErr error, page, limit int, tags ...s
 }
 
 //___________________________________________________________________________________
-// libocli query staking
+// cuspcli query staking
 
-// QueryStakingValidator is libocli query staking validator
+// QueryStakingValidator is cuspcli query staking validator
 func (f *Fixtures) QueryStakingValidator(valAddr sdk.ValAddress, flags ...string) staking.Validator {
 	cmd := fmt.Sprintf("%s query staking validator %s %v", f.CuspcliBinary, valAddr, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -471,7 +471,7 @@ func (f *Fixtures) QueryStakingValidator(valAddr sdk.ValAddress, flags ...string
 	return validator
 }
 
-// QueryStakingUnbondingDelegationsFrom is libocli query staking unbonding-delegations-from
+// QueryStakingUnbondingDelegationsFrom is cuspcli query staking unbonding-delegations-from
 func (f *Fixtures) QueryStakingUnbondingDelegationsFrom(valAddr sdk.ValAddress, flags ...string) []staking.UnbondingDelegation {
 	cmd := fmt.Sprintf("%s query staking unbonding-delegations-from %s %v", f.CuspcliBinary, valAddr, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -482,7 +482,7 @@ func (f *Fixtures) QueryStakingUnbondingDelegationsFrom(valAddr sdk.ValAddress, 
 	return ubds
 }
 
-// QueryStakingDelegationsTo is libocli query staking delegations-to
+// QueryStakingDelegationsTo is cuspcli query staking delegations-to
 func (f *Fixtures) QueryStakingDelegationsTo(valAddr sdk.ValAddress, flags ...string) []staking.Delegation {
 	cmd := fmt.Sprintf("%s query staking delegations-to %s %v", f.CuspcliBinary, valAddr, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -493,7 +493,7 @@ func (f *Fixtures) QueryStakingDelegationsTo(valAddr sdk.ValAddress, flags ...st
 	return delegations
 }
 
-// QueryStakingPool is libocli query staking pool
+// QueryStakingPool is cuspcli query staking pool
 func (f *Fixtures) QueryStakingPool(flags ...string) staking.Pool {
 	cmd := fmt.Sprintf("%s query staking pool %v", f.CuspcliBinary, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -504,7 +504,7 @@ func (f *Fixtures) QueryStakingPool(flags ...string) staking.Pool {
 	return pool
 }
 
-// QueryStakingParameters is libocli query staking parameters
+// QueryStakingParameters is cuspcli query staking parameters
 func (f *Fixtures) QueryStakingParameters(flags ...string) staking.Params {
 	cmd := fmt.Sprintf("%s query staking params %v", f.CuspcliBinary, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -516,9 +516,9 @@ func (f *Fixtures) QueryStakingParameters(flags ...string) staking.Params {
 }
 
 //___________________________________________________________________________________
-// libocli query gov
+// cuspcli query gov
 
-// QueryGovParamDeposit is libocli query gov param deposit
+// QueryGovParamDeposit is cuspcli query gov param deposit
 func (f *Fixtures) QueryGovParamDeposit() gov.DepositParams {
 	cmd := fmt.Sprintf("%s query gov param deposit %s", f.CuspcliBinary, f.Flags())
 	out, _ := tests.ExecuteT(f.T, cmd, "")
@@ -529,7 +529,7 @@ func (f *Fixtures) QueryGovParamDeposit() gov.DepositParams {
 	return depositParam
 }
 
-// QueryGovParamVoting is libocli query gov param voting
+// QueryGovParamVoting is cuspcli query gov param voting
 func (f *Fixtures) QueryGovParamVoting() gov.VotingParams {
 	cmd := fmt.Sprintf("%s query gov param voting %s", f.CuspcliBinary, f.Flags())
 	out, _ := tests.ExecuteT(f.T, cmd, "")
@@ -540,7 +540,7 @@ func (f *Fixtures) QueryGovParamVoting() gov.VotingParams {
 	return votingParam
 }
 
-// QueryGovParamTallying is libocli query gov param tallying
+// QueryGovParamTallying is cuspcli query gov param tallying
 func (f *Fixtures) QueryGovParamTallying() gov.TallyParams {
 	cmd := fmt.Sprintf("%s query gov param tallying %s", f.CuspcliBinary, f.Flags())
 	out, _ := tests.ExecuteT(f.T, cmd, "")
@@ -551,7 +551,7 @@ func (f *Fixtures) QueryGovParamTallying() gov.TallyParams {
 	return tallyingParam
 }
 
-// QueryGovProposals is libocli query gov proposals
+// QueryGovProposals is cuspcli query gov proposals
 func (f *Fixtures) QueryGovProposals(flags ...string) gov.Proposals {
 	cmd := fmt.Sprintf("%s query gov proposals %v", f.CuspcliBinary, f.Flags())
 	stdout, stderr := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -566,7 +566,7 @@ func (f *Fixtures) QueryGovProposals(flags ...string) gov.Proposals {
 	return out
 }
 
-// QueryGovProposal is libocli query gov proposal
+// QueryGovProposal is cuspcli query gov proposal
 func (f *Fixtures) QueryGovProposal(proposalID int, flags ...string) gov.Proposal {
 	cmd := fmt.Sprintf("%s query gov proposal %d %v", f.CuspcliBinary, proposalID, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -577,7 +577,7 @@ func (f *Fixtures) QueryGovProposal(proposalID int, flags ...string) gov.Proposa
 	return proposal
 }
 
-// QueryGovVote is libocli query gov vote
+// QueryGovVote is cuspcli query gov vote
 func (f *Fixtures) QueryGovVote(proposalID int, voter sdk.AccAddress, flags ...string) gov.Vote {
 	cmd := fmt.Sprintf("%s query gov vote %d %s %v", f.CuspcliBinary, proposalID, voter, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -588,7 +588,7 @@ func (f *Fixtures) QueryGovVote(proposalID int, voter sdk.AccAddress, flags ...s
 	return vote
 }
 
-// QueryGovVotes is libocli query gov votes
+// QueryGovVotes is cuspcli query gov votes
 func (f *Fixtures) QueryGovVotes(proposalID int, flags ...string) []gov.Vote {
 	cmd := fmt.Sprintf("%s query gov votes %d %v", f.CuspcliBinary, proposalID, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -599,7 +599,7 @@ func (f *Fixtures) QueryGovVotes(proposalID int, flags ...string) []gov.Vote {
 	return votes
 }
 
-// QueryGovDeposit is libocli query gov deposit
+// QueryGovDeposit is cuspcli query gov deposit
 func (f *Fixtures) QueryGovDeposit(proposalID int, depositor sdk.AccAddress, flags ...string) gov.Deposit {
 	cmd := fmt.Sprintf("%s query gov deposit %d %s %v", f.CuspcliBinary, proposalID, depositor, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -610,7 +610,7 @@ func (f *Fixtures) QueryGovDeposit(proposalID int, depositor sdk.AccAddress, fla
 	return deposit
 }
 
-// QueryGovDeposits is libocli query gov deposits
+// QueryGovDeposits is cuspcli query gov deposits
 func (f *Fixtures) QueryGovDeposits(propsalID int, flags ...string) []gov.Deposit {
 	cmd := fmt.Sprintf("%s query gov deposits %d %v", f.CuspcliBinary, propsalID, f.Flags())
 	out, _ := tests.ExecuteT(f.T, addFlags(cmd, flags), "")
@@ -636,7 +636,7 @@ func (f *Fixtures) QuerySigningInfo(val string) slashing.ValidatorSigningInfo {
 	return sinfo
 }
 
-// QuerySlashingParams is libocli query slashing params
+// QuerySlashingParams is cuspcli query slashing params
 func (f *Fixtures) QuerySlashingParams() slashing.Params {
 	cmd := fmt.Sprintf("%s query slashing params %s", f.CuspcliBinary, f.Flags())
 	res, errStr := tests.ExecuteT(f.T, cmd, "")

@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/viper"
 
 	"github.com/evdatsion/go-amino"
-	"github.com/evdatsion/aphelion-dpos-bft/libs/cli"
+	"github.com/evdatsion/aphelion-staking/libs/cli"
 
 	"github.com/libonomy/cusp/app"
 )
@@ -45,12 +45,12 @@ func main() {
 	// with the cdc
 
 	rootCmd := &cobra.Command{
-		Use:   "libocli",
-		Short: "Command line interface for interacting with libod",
+		Use:   "cuspcli",
+		Short: "Command line interface for interacting with cuspd",
 	}
 
 	// Add --chain-id to persistent flags and mark it required
-	rootCmd.PersistentFlags().String(client.FlagChainID, "", "Chain ID of tendermint node")
+	rootCmd.PersistentFlags().String(client.FlagChainID, "", "Chain ID of aphelion node")
 	rootCmd.PersistentPreRunE = func(_ *cobra.Command, _ []string) error {
 		return initConfig(rootCmd)
 	}

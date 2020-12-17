@@ -12,11 +12,11 @@ import (
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	tmconfig "github.com/evdatsion/aphelion-dpos-bft/config"
-	"github.com/evdatsion/aphelion-dpos-bft/crypto"
-	cmn "github.com/evdatsion/aphelion-dpos-bft/libs/common"
-	"github.com/evdatsion/aphelion-dpos-bft/types"
-	tmtime "github.com/evdatsion/aphelion-dpos-bft/types/time"
+	tmconfig "github.com/evdatsion/aphelion-staking/config"
+	"github.com/evdatsion/aphelion-staking/crypto"
+	cmn "github.com/evdatsion/aphelion-staking/libs/common"
+	"github.com/evdatsion/aphelion-staking/types"
+	tmtime "github.com/evdatsion/aphelion-staking/types/time"
 
 	"github.com/evdatsion/cusp-sdk/client"
 	"github.com/evdatsion/cusp-sdk/client/keys"
@@ -41,7 +41,7 @@ var (
 	flagStartingIPAddress = "starting-ip-address"
 )
 
-// get cmd to initialize all files for tendermint testnet and application
+// get cmd to initialize all files for aphelion testnet and application
 func testnetCmd(ctx *server.Context, cdc *codec.Codec,
 	mbm module.BasicManager, genAccIterator genutiltypes.GenesisAccountsIterator,
 ) *cobra.Command {
@@ -55,7 +55,7 @@ necessary files (private validator, genesis, config, etc.).
 Note, strict routability for addresses is turned off in the config file.
 
 Example:
-	libod testnet --v 4 --output-dir ./output --starting-ip-address 192.168.10.2
+	cuspd testnet --v 4 --output-dir ./output --starting-ip-address 192.168.10.2
 	`,
 		RunE: func(cmd *cobra.Command, _ []string) error {
 			config := ctx.Config
@@ -80,9 +80,9 @@ Example:
 		"Directory to store initialization data for the testnet")
 	cmd.Flags().String(flagNodeDirPrefix, "node",
 		"Prefix the directory name for each node with (node results in node0, node1, ...)")
-	cmd.Flags().String(flagNodeDaemonHome, "libod",
+	cmd.Flags().String(flagNodeDaemonHome, "cuspd",
 		"Home directory of the node's daemon configuration")
-	cmd.Flags().String(flagNodeCLIHome, "libocli",
+	cmd.Flags().String(flagNodeCLIHome, "cuspcli",
 		"Home directory of the node's cli configuration")
 	cmd.Flags().String(flagStartingIPAddress, "192.168.0.1",
 		"Starting IP address (192.168.0.1 results in persistent peers list ID0@192.168.0.1:46656, ID1@192.168.0.2:46656, ...)")
@@ -237,7 +237,7 @@ func InitTestnet(cmd *cobra.Command, config *tmconfig.Config, cdc *codec.Codec,
 
 		// TODO: Rename config file to server.toml as it's not particular to Cusp
 		// (REF: https://github.com/evdatsion/cusp-sdk/issues/4125).
-		cuspConfigFilePath := filepath.Join(nodeDir, "config/libod.toml")
+		cuspConfigFilePath := filepath.Join(nodeDir, "config/cuspd.toml")
 		srvconfig.WriteConfigFile(cuspConfigFilePath, cuspConfig)
 	}
 

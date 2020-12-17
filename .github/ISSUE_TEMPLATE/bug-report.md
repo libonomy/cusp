@@ -16,7 +16,7 @@ v    Please also ensure that this is not a duplicate issue :)
 
 ## Version
 
-<!-- git commit hash, output of `libocli --version`, output of `libod --version` -->
+<!-- git commit hash, output of `cuspcli --version`, output of `cuspd --version` -->
 
 ## Steps to Reproduce
 

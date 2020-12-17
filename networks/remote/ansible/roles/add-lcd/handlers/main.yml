@@ -1,9 +1,9 @@
 ---
 
 - name: systemctl
-  systemd: name=libocli enabled=yes daemon_reload=yes
+  systemd: name=cuspcli enabled=yes daemon_reload=yes
 
-- name: restart libocli
-  service: name=libocli state=restarted
+- name: restart cuspcli
+  service: name=cuspcli state=restarted
 
 

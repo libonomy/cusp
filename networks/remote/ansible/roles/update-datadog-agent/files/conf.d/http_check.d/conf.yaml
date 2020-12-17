@@ -1,13 +1,13 @@
 init_config:
 
 instances:
-  - name: libod
+  - name: cuspd
     url: http://localhost:26657/status
     timeout: 1
     content_match: '"latest_block_height": "0",'
     reverse_content_match: true
 
-  - name: libocli
+  - name: cuspcli
     url: http://localhost:1317/node_version
     timeout: 1
 

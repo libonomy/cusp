@@ -5,11 +5,11 @@ instances:
   search_string: ['ssh', 'sshd']
   thresholds:
     critical: [1, 5]
-- name: libod
-  search_string: ['libod']
+- name: cuspd
+  search_string: ['cuspd']
   thresholds:
     critical: [1, 1]
-- name: libocli
-  search_string: ['libocli']
+- name: cuspcli
+  search_string: ['cuspcli']
   thresholds:
     critical: [1, 1]

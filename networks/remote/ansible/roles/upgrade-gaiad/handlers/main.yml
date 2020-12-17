@@ -1,5 +1,0 @@
----
-
-- name: restart libod
-  service: name=libod state=restarted
-
