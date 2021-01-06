@@ -54,7 +54,7 @@ import (
 // TODO: Make InitializeTestLCD safe to call in multiple tests at the same time
 // InitializeLCD starts Libonomy and the LCD in process, listening on
 // their respective sockets where nValidators is the total number of validators
-// and initAddrs are the accounts to initialize with some libocoin. It
+// and initAddrs are the accounts to initialize with some lby. It
 // returns a cleanup function, a set of validator public keys, and a port.
 func InitializeLCD(nValidators int, initAddrs []sdk.AccAddress, minting bool, portExt ...string) (
 	cleanup func(), valConsPubKeys []crypto.PubKey, valOperAddrs []sdk.ValAddress, port string, err error) {

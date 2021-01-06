@@ -635,7 +635,7 @@ func TestCuspCLISubmitParamChangeProposal(t *testing.T) {
   ],
   "deposit": [
     {
-      "denom": "libocoin",
+      "denom": "lby",
       "amount": "%s"
     }
   ]

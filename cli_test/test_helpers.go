@@ -33,7 +33,7 @@ import (
 )
 
 const (
-	denom        = "libocoin"
+	denom        = "lby"
 	keyFoo       = "foo"
 	keyBar       = "bar"
 	fooDenom     = "footoken"
