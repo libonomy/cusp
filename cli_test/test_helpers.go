@@ -33,7 +33,7 @@ import (
 )
 
 const (
-	denom        = "lby"
+	denom        = "flby"
 	keyFoo       = "foo"
 	keyBar       = "bar"
 	fooDenom     = "footoken"
