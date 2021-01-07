@@ -10,7 +10,7 @@ require (
 	github.com/golang/mock v1.3.1 // indirect
 	github.com/gorilla/mux v1.7.3 // indirect
 	github.com/libonomy/aphelion-staking v0.1.2
-	github.com/libonomy/cusp-sdk v0.1.2
+	github.com/libonomy/cusp-sdk v1.0.0
 	github.com/mattn/go-isatty v0.0.8 // indirect
 	github.com/onsi/ginkgo v1.8.0 // indirect
 	github.com/onsi/gomega v1.5.0 // indirect
