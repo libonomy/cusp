@@ -1,7 +1,7 @@
 # Makefile for the "cuspdnode" docker image.
 
 all:
-	docker build --tag aphelion/cuspdnode cuspdnode
+	docker build --tag libonomy/cuspdnode cuspdnode
 
 .PHONY: all
 

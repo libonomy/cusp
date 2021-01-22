@@ -3,7 +3,7 @@ version: '3'
 services:
   cuspdnode0:
     container_name: cuspdnode0
-    image: "aphelion/cuspdnode"
+    image: "libonomy/cuspdnode"
     ports:
       - "26656-26657:26656-26657"
     environment:
@@ -17,7 +17,7 @@ services:
 
   cuspdnode1:
     container_name: cuspdnode1
-    image: "aphelion/cuspdnode"
+    image: "libonomy/cuspdnode"
     ports:
       - "26659-26660:26656-26657"
     environment:
@@ -31,7 +31,7 @@ services:
 
   cuspdnode2:
     container_name: cuspdnode2
-    image: "aphelion/cuspdnode"
+    image: "libonomy/cuspdnode"
     environment:
       - ID=2
       - LOG=${LOG:-cuspd.log}
@@ -45,7 +45,7 @@ services:
 
   cuspdnode3:
     container_name: cuspdnode3
-    image: "aphelion/cuspdnode"
+    image: "libonomy/cuspdnode"
     environment:
       - ID=3
       - LOG=${LOG:-cuspd.log}
