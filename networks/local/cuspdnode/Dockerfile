@@ -1,5 +1,5 @@
 FROM alpine:3.7
-MAINTAINER Greg Szabo <developers@libonomy.com>
+MAINTAINER developers <developers@libonomy.com>
 
 RUN apk update && \
     apk upgrade && \
