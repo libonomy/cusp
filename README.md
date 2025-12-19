@@ -1,29 +1,52 @@
+<br />
+<p align="center">
+  <h3 align="center">Libonomy Cusp CLI</h3>
 
-#### Cusp is  Libonomy's command line daemon and interface for interacting with the test and main chains of libonomy blockchain.
+A command-line interface for interacting with the Cusp blockchain, enabling node operations, queries and transaction execution.
+
+<b>Halt Status:</b>  Cusp modules were R&D based and were linked with AI simulators. Development was Halted during the planning for ai commands.
+
+</p>
+
+## Getting Started
+
+Follow the instructions below to run the project locally.
+
+## Prerequisites
+
+Make sure you have the following installed:
+
+- **GO**
+
+  Install GO from:
+
+  ```sh
+  https://go.dev/doc/install
+  ```
+
+  ⚠️ **Supported GO version:** `1.12.x`
 
 
-## Pre-requisites
+## Installation
 
+1. **Clone the repository**
 
-> OS X, Ubuntu , Windows Support included
-- Ensure that you have git installed [git](https://git-scm.com/)
-- Ensure that that you have golang installed [go lang v1.14+](https://golang.org/)
-- Ensure that `$GOPATH` is set correctly and that the `$GOPATH/bin` directory appears in `$PATH`.
+2. **Navigate to the project directory**
 
-## Quick Start
+3. **Install dependencies**
+
+```sh
+go mod tidy
+```
+
+4. **Make build**
+
+```sh
+make install
+```
+
+After building process is complete you can configure the chain via cuspd.
 
 ```
-1. Clone the repo outside of the gopath
-2. Run Make Install command in order to install the required dependencies of the system.
-3. When the installation is successful you will be able to utilize libonomy daemon and CLI commands .
+Copyright © 2025 — Libonomy
 ```
-> cuspd is meant to for daemon interface and cuspcli is meant for command line interfacing, rest/rpc services and others.
-
-
-## Developers Community ?
-- Libonomy [discord community](https://libonomy.com/discord)
-#### Upcoming Release
-- The upcoming release will move the CUSP independent of the relying dependencies such as bitcoin and aphelion.
-- The classification agent module CLI by which blockchain can be interacted with the AI modules and classification agents.
-- Multi Layered Pooling system which will serve as a public interaction channel directly through our standalone CLI .
----
