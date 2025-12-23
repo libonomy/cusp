@@ -7,7 +7,7 @@ import (
 	abci "github.com/libonomy/aphelion-staking/abci/types"
 	cmn "github.com/libonomy/aphelion-staking/libs/common"
 	"github.com/libonomy/aphelion-staking/libs/log"
-	dbm "github.com/evdatsion/tm-db"
+	dbm "github.com/libonomy/tm-db"
 
 	bam "github.com/libonomy/cusp-sdk/baseapp"
 	"github.com/libonomy/cusp-sdk/codec"

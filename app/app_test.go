@@ -6,7 +6,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/libonomy/aphelion-staking/libs/log"
-	"github.com/evdatsion/tm-db"
+	"github.com/libonomy/tm-db"
 
 	"github.com/libonomy/cusp-sdk/codec"
 	"github.com/libonomy/cusp-sdk/simapp"

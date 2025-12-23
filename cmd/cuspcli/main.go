@@ -20,7 +20,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 
-	"github.com/evdatsion/go-amino"
+	"github.com/libonomy/go-amino"
 	"github.com/libonomy/aphelion-staking/libs/cli"
 
 	"github.com/libonomy/cusp/app"

@@ -32,7 +32,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 
-	"github.com/evdatsion/go-amino"
+	"github.com/libonomy/go-amino"
 	tmcfg "github.com/libonomy/aphelion-staking/config"
 	"github.com/libonomy/aphelion-staking/crypto"
 	"github.com/libonomy/aphelion-staking/crypto/ed25519"
@@ -46,7 +46,7 @@ import (
 	ctypes "github.com/libonomy/aphelion-staking/rpc/core/types"
 	tmrpc "github.com/libonomy/aphelion-staking/rpc/lib/server"
 	tmtypes "github.com/libonomy/aphelion-staking/types"
-	dbm "github.com/evdatsion/tm-db"
+	dbm "github.com/libonomy/tm-db"
 
 	gapp "github.com/libonomy/cusp/app"
 )

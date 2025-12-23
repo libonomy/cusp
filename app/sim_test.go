@@ -15,7 +15,7 @@ import (
 
 	abci "github.com/libonomy/aphelion-staking/abci/types"
 	"github.com/libonomy/aphelion-staking/libs/log"
-	dbm "github.com/evdatsion/tm-db"
+	dbm "github.com/libonomy/tm-db"
 
 	"github.com/libonomy/cusp-sdk/baseapp"
 	"github.com/libonomy/cusp-sdk/simapp"
